@@ -4,15 +4,19 @@ import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import LocaleButton from "./LocaleButton";
+import useDarkmodeRef from "@/utils/hooks/useDarkmodeRef";
+import DarkmodeToggle from "./DarkmodeToggle";
 
 const routes = ["about", "projects", "contact"];
 
 export default function LayoutHeader() {
   const [mouseEntered, setMouseEntered] = useState("");
-  const { pathname, locale, locales, asPath } = useRouter();
-  const localeTo = locales!.find((l) => l !== locale) as string;
+  const router = useRouter();
   const { scaleUpCursor, scaleDownCursor } = useCursorRef();
   const { smoothRoute } = useSmoothRoute();
+
+  const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 
   const handleMouseEnter = useCallback(
     (route: string) => {
@@ -37,7 +41,7 @@ export default function LayoutHeader() {
       >
         JW
       </a>
-      <nav className="flex items-center text-lg font-semibold">
+      <nav className="flex items-center gap-24 text-lg font-semibold">
         <ul className="flex gap-12">
           {routes.map((route) => (
             <li
@@ -51,25 +55,14 @@ export default function LayoutHeader() {
               </a>
               <div
                 className={clsx("w-full h-[2px] bg-gray-400 scale-0 transition", {
-                  "scale-100": mouseEntered === route || pathname === `/${route}`,
+                  "scale-100": mouseEntered === route || router.pathname === `/${route}`,
                 })}
               ></div>
             </li>
           ))}
         </ul>
-        <div>
-          {/* <a
-            onClick={() => transitionPush(localeTo, true)}
-            onMouseEnter={scaleUpCursor}
-            onMouseLeave={scaleDownCursor}
-            className=""
-          >
-            {localeTo}
-          </a> */}
-          <Link href={asPath} locale={localeTo}>
-            {localeTo}
-          </Link>
-        </div>
+        <DarkmodeToggle />
+        <LocaleButton localeTo={localeTo} asPath={router.asPath} />
       </nav>
     </header>
   );

@@ -4,4 +4,9 @@
 
 html {
   cursor: none;
+  overflow: hidden;
+}
+
+a {
+  cursor: none;
 }
