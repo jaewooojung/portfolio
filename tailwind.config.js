@@ -1,15 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-
-const { fontFamily } = require("tailwindcss/defaultTheme");
-
 module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        inter: ["var(--font-inter)", ...fontFamily.sans],
-      },
       keyframes: {
         cursorScaleUp: {
           "0%": { transform: "scale(1)" },
@@ -27,12 +21,17 @@ module.exports = {
           "0%": { opacity: 1 },
           "100%": { opacity: 0 },
         },
+        slideRightInfinite: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "cursor-scale-up": ".3s cursorScaleUp forwards",
         "cursor-scale-down": ".3s cursorScaleDown forwards",
         "fade-in": ".3s fadeIn forwards",
         "fade-out": ".3s fadeOut forwards",
+        "slide-right-infinite": "20s slideRightInfinite linear infinite",
       },
     },
   },

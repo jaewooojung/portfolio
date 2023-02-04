@@ -1,11 +1,9 @@
 import clsx from "clsx";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import LocaleButton from "./LocaleButton";
-import useDarkmodeRef from "@/utils/hooks/useDarkmodeRef";
 import DarkmodeToggle from "./DarkmodeToggle";
 
 const routes = ["about", "projects", "contact"];
@@ -13,56 +11,57 @@ const routes = ["about", "projects", "contact"];
 export default function LayoutHeader() {
   const [mouseEntered, setMouseEntered] = useState("");
   const router = useRouter();
-  const { scaleUpCursor, scaleDownCursor } = useCursorRef();
+  const { scaleUpBorder, scaleDownBorder, absorbColorToBg, resetBg, scaleUpAndAbsorbColor, scaleDownAndResetBg } =
+    useCursorRef();
   const { smoothRoute } = useSmoothRoute();
-
-  const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 
   const handleMouseEnter = useCallback(
     (route: string) => {
       setMouseEntered(route);
-      scaleUpCursor();
+      scaleUpBorder();
     },
-    [scaleUpCursor]
+    [scaleUpBorder]
   );
 
   const handleMouseLeave = useCallback(() => {
     setMouseEntered("none");
-    scaleDownCursor();
-  }, [scaleDownCursor]);
+    scaleDownBorder();
+  }, [scaleDownBorder]);
 
   return (
-    <header className="py-10 w-full h-40 flex justify-between items-center">
-      <a
+    <header className="py-10 w-full h-52 flex justify-between items-center">
+      <div
         onClick={() => smoothRoute("/")}
-        onMouseEnter={scaleUpCursor}
-        onMouseLeave={scaleDownCursor}
-        className="text-5xl font-bold"
+        onMouseEnter={() => scaleUpAndAbsorbColor("bg-amber-900")}
+        onMouseLeave={scaleDownAndResetBg}
+        className="text-amber-900 hover:text-white"
       >
-        JW
-      </a>
-      <nav className="flex items-center gap-24 text-lg font-semibold">
-        <ul className="flex gap-12">
+        <a className="text-5xl font-bold cursor-pointer">JW.</a>
+      </div>
+      <nav className="h-1/4 flex gap-12 text-lg font-semibold">
+        <ul className="h-full flex gap-12">
           {routes.map((route) => (
             <li
               key={route}
+              onClick={() => smoothRoute(`/${route}`)}
               onMouseEnter={() => handleMouseEnter(route)}
               onMouseLeave={handleMouseLeave}
-              className="w-full"
+              className="relative flex items-center"
             >
-              <a onClick={() => smoothRoute(`/${route}`)} className="text-gray-400">
-                {route.slice(0, 1).toUpperCase() + route.slice(1)}
-              </a>
+              <a className="text-gray-400">{route.slice(0, 1).toUpperCase() + route.slice(1)}</a>
               <div
-                className={clsx("w-full h-[2px] bg-gray-400 scale-0 transition", {
+                className={clsx("absolute bottom-0 w-full h-[3px] bg-gray-400 transition-transform", {
                   "scale-100": mouseEntered === route || router.pathname === `/${route}`,
+                  "scale-0": !(mouseEntered === route || router.pathname === `/${route}`),
                 })}
               ></div>
             </li>
           ))}
         </ul>
-        <DarkmodeToggle />
-        <LocaleButton localeTo={localeTo} asPath={router.asPath} />
+        <div className="h-full flex items-center gap-6">
+          <LocaleButton />
+          <DarkmodeToggle />
+        </div>
       </nav>
     </header>
   );

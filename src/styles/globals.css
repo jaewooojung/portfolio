@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "NANUM";
+  src: url("../../public/fonts/NanumSquareR.otf");
+}
+
 html {
   cursor: none;
   overflow: hidden;
 }
 
+* {
+  font-family: NANUM sans-serif "Courier New", Courier, monospace;
+}
+
 a {
-  cursor: none;
+  /* cursor: none; */
 }

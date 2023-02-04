@@ -1,15 +1,34 @@
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
-export default React.memo(function LocaleButton({ localeTo, asPath }: { localeTo: string; asPath: string }) {
-  const { scaleUpCursor, scaleDownCursor } = useCursorRef();
+export default React.memo(function LocaleButton() {
+  const router = useRouter();
+  const { cursorRef } = useCursorRef();
 
+  const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
+
+  const handleClick = () => {
+    if (cursorRef.current) {
+      const cursorX = cursorRef.current.style.top;
+      const cursorY = cursorRef.current.style.left;
+      router.replace(
+        {
+          pathname: router.asPath,
+          query: { cursorX, cursorY },
+        },
+        router.asPath,
+        {
+          locale: localeTo,
+        }
+      );
+    }
+  };
   return (
-    <div className="px-2 py-[2px] hover:animate-pulse" onMouseEnter={scaleUpCursor} onMouseLeave={scaleDownCursor}>
-      <Link href={asPath} locale={localeTo} className="text-gray-500">
+    <div className="w-7 h-7 flex justify-center items-center text-gray-500 underline-offset-2 hover:underline">
+      <a onClick={handleClick} className="">
         {localeTo.toUpperCase()}
-      </Link>
+      </a>
     </div>
   );
 });

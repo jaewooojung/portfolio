@@ -1,5 +1,9 @@
 {
   "title": "I am Jaewoo Jung",
   "subTitle": "Prospective web developer with great enthusiasm.",
-  "p1": "How nice would it be if I could earn the money doing what I want?"
+  "q1": "How nice would it be if I could earn the money doing what I want?",
+  "span1": "Starting a new career as a web developer in 2023,",
+  "span2": "I'm looking for company or teams to enjoy coding and have a career.",
+  "span3": "My skills - HTML, CSS, JAVASCRIPT, reactjs, nextjs, threejs",
+  "span4": "Interest - Interactive web programming including 3D rendering, web performance"
 }

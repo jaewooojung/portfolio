@@ -1,4 +1,5 @@
 import { createContext, createRef, RefObject, useEffect, useRef } from "react";
+import { throttle } from "throttle-debounce";
 
 interface IContext {
   cursorRef: RefObject<HTMLDivElement>;

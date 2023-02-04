@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useCursorRef } from "./useCursorRef";
 import useLayoutRef from "./useLayoutRef";
 
@@ -13,9 +13,9 @@ export default function useSmoothRoute() {
       if (router.pathname === value) {
         return;
       }
-      const cursorX = cursorRef.current?.style.top;
-      const cursorY = cursorRef.current?.style.left;
-      if (layoutRef.current) {
+      if (layoutRef.current && cursorRef.current) {
+        const cursorX = cursorRef.current.style.top;
+        const cursorY = cursorRef.current.style.left;
         layoutRef.current.classList.add("animate-fade-out");
         layoutRef.current.onanimationend = (event: AnimationEvent) => {
           if (event.animationName === "fadeOut") {
