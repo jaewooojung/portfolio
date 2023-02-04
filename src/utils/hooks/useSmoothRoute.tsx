@@ -16,18 +16,16 @@ export default function useSmoothRoute() {
       if (layoutRef.current && cursorRef.current) {
         const cursorX = cursorRef.current.style.top;
         const cursorY = cursorRef.current.style.left;
-        layoutRef.current.classList.add("animate-fade-out");
-        layoutRef.current.onanimationend = (event: AnimationEvent) => {
-          if (event.animationName === "fadeOut") {
-            router.push(
-              {
-                pathname: value,
-                query: { cursorX, cursorY },
-              },
-              value
-            );
-          }
-        };
+        layoutRef.current.classList.replace("opacity-100", "opacity-0");
+        setTimeout(() => {
+          router.push(
+            {
+              pathname: value,
+              query: { cursorX, cursorY },
+            },
+            value
+          );
+        }, 150);
       }
     },
     [cursorRef, layoutRef, router]

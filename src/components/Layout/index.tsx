@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import Background from "./Background";
 import SideBar from "./SideBar";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 
 const DynamicDarkmodeConfig = dynamic(() => import("./DarkmodeConfig"), {
   ssr: false,
@@ -14,6 +15,12 @@ const DynamicDarkmodeConfig = dynamic(() => import("./DarkmodeConfig"), {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { layoutRef } = useLayoutRef();
+  const [fadein, setFadein] = useState(false);
+
+  useEffect(() => {
+    setFadein(true);
+  }, []);
+
   return (
     <>
       <Head>
@@ -22,12 +29,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DynamicDarkmodeConfig>
-        <div ref={layoutRef} className={clsx("px-4 opacity-0 animate-fade-in", "sm:px-10 lg:px-28 xl:px-60 2xl:px-80")}>
+        <div
+          ref={layoutRef}
+          className={clsx("px-4 transition-opacity duration-150", "sm:px-10 lg:px-28 xl:px-60 2xl:px-80", {
+            "opacity-100": fadein,
+            "opacity-0": !fadein,
+          })}
+        >
           <Background />
           <SideBar />
           <Cursor />
           <LayoutHeader />
-          <main className={clsx("sm:px-10 lg:px-16 xl:px-32 2xl:px-40")}>{children}</main>
+          <main className={clsx("pb-14", "sm:pb-0 sm:px-10 lg:px-16 xl:px-32 2xl:px-40")}>{children}</main>
           <LayoutFooter />
         </div>
       </DynamicDarkmodeConfig>

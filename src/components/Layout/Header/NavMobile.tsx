@@ -33,7 +33,7 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
           "translate-x-0": open,
         })}
       >
-        <ul className="mb-10 w-full flex flex-col items-center gap-10 text-xl font-bold text-gray-600">
+        <ul className="mb-10 w-full flex flex-col items-center gap-10 text-xl font-bold">
           <li
             onClick={() => smoothRoute("/")}
             key="home"
@@ -56,8 +56,8 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
           ))}
         </ul>
         <div className="w-full flex justify-center gap-20">
-          <LocaleButton isMobile={true} />
-          <DarkmodeToggle isMobile={true} />
+          <LocaleButton />
+          <DarkmodeToggle />
         </div>
       </div>
     </nav>

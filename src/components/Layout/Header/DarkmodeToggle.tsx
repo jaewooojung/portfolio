@@ -36,10 +36,12 @@ export const SunIcon = () => (
   </svg>
 );
 
-export default React.memo(function DarkmodeToggle({ isMobile }: { isMobile?: boolean }) {
+export default React.memo(function DarkmodeToggle() {
   const [isDark, setIsDark] = useState(false);
   const { darkmodeRef } = useDarkmodeRef();
   const { absorbColorToBg, resetBg } = useCursorRef();
+
+  const isMobile = window.innerWidth < 640;
 
   const toggleDarkmode = () => {
     if (darkmodeRef.current) {

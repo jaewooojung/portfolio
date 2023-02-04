@@ -3,9 +3,11 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 import React from "react";
 
-export default React.memo(function LocaleButton({ isMobile }: { isMobile?: boolean }) {
+export default React.memo(function LocaleButton() {
   const router = useRouter();
   const { cursorRef } = useCursorRef();
+
+  const isMobile = window.innerWidth < 640;
 
   const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 

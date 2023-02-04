@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "nanum";
+  font-family: "NanumSquare";
   src: url("../../public/fonts/NanumSquareR.otf");
 }
 
 html {
   cursor: none;
-  overflow: hidden;
+  overflow: hidden auto;
 }
 
 * {
-  font-family: nanum, sans-serif, "Courier New", Courier, monospace;
+  font-family: NanumSquare, sans-serif, "Courier New", Courier, monospace;
 }
 
 a {

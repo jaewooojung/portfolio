@@ -27,7 +27,7 @@ export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
   return (
     <nav
       className={clsx(
-        "hidden h-1/4 text-lg font-semibold text-gray-500",
+        "hidden h-1/4 text-lg font-semibold",
         "sm:w-full sm:h-full sm:flex sm:justify-between sm:items-center sm:gap-12 2xl:gap-24"
       )}
     >
@@ -48,7 +48,7 @@ export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
             onMouseLeave={handleMouseLeave}
             className="relative flex items-center"
           >
-            <a className="text-gray-400">{tab.slice(0, 1).toUpperCase() + tab.slice(1)}</a>
+            <a className="">{tab.slice(0, 1).toUpperCase() + tab.slice(1)}</a>
             <div
               className={clsx("absolute bottom-0 w-full h-[3px] bg-gray-400 transition-transform", {
                 "scale-100": mouseEntered === tab || router.pathname === `/${tab}`,
