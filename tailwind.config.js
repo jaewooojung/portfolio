@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundColor: {
+        background: "rgb(255,253,252)",
+      },
       keyframes: {
         cursorScaleUp: {
           "0%": { transform: "scale(1)" },

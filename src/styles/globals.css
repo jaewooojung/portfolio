@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "NANUM";
+  font-family: "nanum";
   src: url("../../public/fonts/NanumSquareR.otf");
 }
 
@@ -13,7 +13,7 @@ html {
 }
 
 * {
-  font-family: NANUM sans-serif "Courier New", Courier, monospace;
+  font-family: nanum, sans-serif, "Courier New", Courier, monospace;
 }
 
 a {

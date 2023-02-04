@@ -4,7 +4,7 @@ export default function HomeComps() {
 
   return (
     <div className="text-gray-700 font-semibold">
-      <h1 className="mb-1 text-5xl text-black font-extrabold">{t("title")}</h1>
+      <h1 className="mb-1 text-5xl text-black font-serif font-extrabold">{t("title")}</h1>
       <h2 className="mb-5 text-md">{t("subTitle")}</h2>
       <div className="mb-5">
         <q className="italic">{t("q1")}</q>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useDarkmodeRef from "@/utils/hooks/useDarkmodeRef";
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
 
-const MoonIcon = () => (
+export const MoonIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -19,7 +19,7 @@ const MoonIcon = () => (
   </svg>
 );
 
-const SunIcon = () => (
+export const SunIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -36,7 +36,7 @@ const SunIcon = () => (
   </svg>
 );
 
-export default React.memo(function DarkmodeToggle() {
+export default React.memo(function DarkmodeToggle({ isMobile }: { isMobile?: boolean }) {
   const [isDark, setIsDark] = useState(false);
   const { darkmodeRef } = useDarkmodeRef();
   const { absorbColorToBg, resetBg } = useCursorRef();
@@ -60,13 +60,15 @@ export default React.memo(function DarkmodeToggle() {
     }
   }, [darkmodeRef]);
 
+  const divProps = isMobile
+    ? {}
+    : {
+        onMouseEnter: () => absorbColorToBg("bg-gray-600"),
+        onMouseLeave: resetBg,
+      };
+
   return (
-    <div
-      onClick={toggleDarkmode}
-      onMouseEnter={() => absorbColorToBg("bg-gray-600")}
-      onMouseLeave={resetBg}
-      className="w-7 h-7 text-gray-600 hover:text-white"
-    >
+    <div onClick={toggleDarkmode} className="w-7 h-7 sm:hover:text-white" {...divProps}>
       {isDark ? <SunIcon /> : <MoonIcon />}
     </div>
   );
