@@ -4,7 +4,7 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundColor: {
+      colors: {
         background: "rgb(255,253,252)",
       },
       keyframes: {

@@ -4,7 +4,7 @@ import { useCallback, useContext } from "react";
 const clearBgProperties = (element: HTMLDivElement) => {
   let prevBg: Array<string> = [];
   element.classList.forEach((c) => {
-    if (c.startsWith("bg")) {
+    if (c.startsWith("bg") || c.startsWith("dark:bg")) {
       prevBg.push(c);
     }
   });
@@ -18,16 +18,12 @@ export function useCursorRef() {
   const scaleUpBorder = useCallback(() => {
     if (cursorRef.current) {
       const cursorBorder = cursorRef.current.firstChild as HTMLDivElement;
-      // cursorBorder.classList.remove("animate-cursor-scale-down");
-      // cursorBorder.classList.add("animate-cursor-scale-up");
       cursorBorder.classList.add("scale-150");
     }
   }, [cursorRef]);
   const scaleDownBorder = useCallback(() => {
     if (cursorRef.current) {
       const cursorBorder = cursorRef.current.firstChild as HTMLDivElement;
-      // cursorBorder.classList.remove("animate-cursor-scale-up");
-      // cursorBorder.classList.add("animate-cursor-scale-down");
       cursorBorder.classList.remove("scale-150");
     }
   }, [cursorRef]);

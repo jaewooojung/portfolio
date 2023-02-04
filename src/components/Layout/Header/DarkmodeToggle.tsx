@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useDarkmodeRef from "@/utils/hooks/useDarkmodeRef";
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
+import clsx from "clsx";
 
 export const MoonIcon = () => (
   <svg
@@ -65,12 +66,12 @@ export default React.memo(function DarkmodeToggle() {
   const divProps = isMobile
     ? {}
     : {
-        onMouseEnter: () => absorbColorToBg("bg-gray-600"),
+        onMouseEnter: () => absorbColorToBg("bg-gray-300"),
         onMouseLeave: resetBg,
       };
 
   return (
-    <div onClick={toggleDarkmode} className="w-7 h-7 sm:hover:text-white" {...divProps}>
+    <div onClick={toggleDarkmode} className={clsx("w-7 h-7 ", "sm:hover:text-white")} {...divProps}>
       {isDark ? <SunIcon /> : <MoonIcon />}
     </div>
   );

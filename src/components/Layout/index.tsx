@@ -31,16 +31,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <DynamicDarkmodeConfig>
         <div
           ref={layoutRef}
-          className={clsx("px-4 transition-opacity duration-150", "sm:px-10 lg:px-28 xl:px-60 2xl:px-80", {
-            "opacity-100": fadein,
-            "opacity-0": !fadein,
-          })}
+          className={clsx(
+            "px-4 text-zinc-800 transition-opacity duration-150",
+            "sm:px-10 lg:px-28 xl:px-60 2xl:px-80",
+            "dark:bg-zinc-900 dark:text-zinc-400",
+            {
+              "opacity-100": fadein,
+              "opacity-0": !fadein,
+            }
+          )}
         >
           <Background />
-          <SideBar />
           <Cursor />
+          <SideBar />
           <LayoutHeader />
-          <main className={clsx("pb-14", "sm:pb-0 sm:px-10 lg:px-16 xl:px-32 2xl:px-40")}>{children}</main>
+          <main
+            className={clsx(
+              "relative pt-10 pb-20",
+              "sm:pt-0 sm:pb-0 sm:px-10 md:pt-14 md:pb-20 lg:py-0 lg:px-16 xl:px-32 2xl:px-40"
+            )}
+          >
+            {children}
+          </main>
           <LayoutFooter />
         </div>
       </DynamicDarkmodeConfig>

@@ -41,9 +41,7 @@ export default React.memo(function LocaleButton() {
   };
   return (
     <div className={clsx("w-7 h-7 flex justify-center items-center", "underline-offset-2 sm:hover:underline")}>
-      <a onClick={handleClick} className="">
-        {localeTo.toUpperCase()}
-      </a>
+      <a onClick={handleClick}>{localeTo.toUpperCase()}</a>
     </div>
   );
 });

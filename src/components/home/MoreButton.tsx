@@ -24,13 +24,13 @@ export default function MoreButton() {
   const buttonProps = isMobile
     ? {}
     : {
-        onMouseEnter: () => scaleUpAndAbsorbColor("bg-amber-900"),
+        onMouseEnter: () => scaleUpAndAbsorbColor("bg-emerald-500"),
         onMouseLeave: scaleDownAndResetBg,
       };
   return (
     <button
       onClick={() => smoothRoute("/about")}
-      className={clsx("flex text-amber-900", "sm:hover:text-white")}
+      className={clsx("flex text-emerald-500", "sm:hover:text-background")}
       {...buttonProps}
     >
       <span className="mr-1">{t("button1")}</span> <ArrowRightIcon />

@@ -5,12 +5,12 @@ export default function DarkmodeConfig({ children }: { children: React.ReactNode
   const { darkmodeRef } = useDarkmodeRef();
 
   let isDark = false;
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    isDark = true;
-  }
+  // if (
+  //   localStorage.theme === "dark" ||
+  //   (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  // ) {
+  //   isDark = true;
+  // }
 
   return (
     <div

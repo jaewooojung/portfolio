@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import DarkmodeToggle from "./DarkmodeToggle";
 import LocaleButton from "./LocaleButton";
+import Logo from "./Logo";
 
 export default function NavMobile({ tabs }: { tabs: Array<string> }) {
   const router = useRouter();
@@ -14,24 +15,26 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
   };
   return (
     <nav className={clsx("h-full flex justify-between items-center", "sm:hidden")}>
-      <div onClick={() => smoothRoute("/")} className="text-amber-900">
-        <a className="text-4xl font-serif font-extrabold">JW.</a>
-      </div>
-      <div onClick={toggleHamburgur} className="z-10 w-5 h-5">
+      <Logo />
+      <div onClick={toggleHamburgur} className="relative z-20 w-5 h-5">
         {open ? (
           "x"
         ) : (
           <div className="w-full h-full flex flex-col justify-between">
-            <div className="w-full h-[3px] rounded-xl bg-gray-600"></div>
-            <div className="w-full h-[3px] rounded-xl bg-gray-600"></div>
-            <div className="w-full h-[3px] rounded-xl bg-gray-600"></div>
+            <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>
+            <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>
+            <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>
           </div>
         )}
       </div>
       <div
-        className={clsx("fixed inset-0 pt-20 bg-background transition-transform translate-x-full", {
-          "translate-x-0": open,
-        })}
+        className={clsx(
+          "fixed z-10 inset-0 pt-20 bg-background transition-transform translate-x-full",
+          "dark:bg-zinc-900",
+          {
+            "translate-x-0": open,
+          }
+        )}
       >
         <ul className="mb-10 w-full flex flex-col items-center gap-10 text-xl font-bold">
           <li

@@ -5,6 +5,7 @@ import router from "next/router";
 import { useCallback, useState } from "react";
 import DarkmodeToggle from "./DarkmodeToggle";
 import LocaleButton from "./LocaleButton";
+import Logo from "./Logo";
 
 export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
   const [mouseEntered, setMouseEntered] = useState("");
@@ -28,29 +29,23 @@ export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
     <nav
       className={clsx(
         "hidden h-1/4 text-lg font-semibold",
-        "sm:w-full sm:h-full sm:flex sm:justify-between sm:items-center sm:gap-12 2xl:gap-24"
+        "sm:w-full sm:h-full sm:flex sm:justify-between sm:items-center sm:gap-12 2xl:gap-16"
       )}
     >
-      <div
-        onClick={() => smoothRoute("/")}
-        onMouseEnter={() => scaleUpAndAbsorbColor("bg-amber-900")}
-        onMouseLeave={scaleDownAndResetBg}
-        className="text-amber-900 hover:text-white"
-      >
-        <a className="text-5xl font-serif font-extrabold cursor-pointer">JW.</a>
-      </div>
+      <Logo />
       <ul className="flex gap-12">
         {tabs.map((tab) => (
-          <li
-            key={tab}
-            onClick={() => smoothRoute(`/${tab}`)}
-            onMouseEnter={() => handleMouseEnter(tab)}
-            onMouseLeave={handleMouseLeave}
-            className="relative flex items-center"
-          >
-            <a className="">{tab.slice(0, 1).toUpperCase() + tab.slice(1)}</a>
+          <li key={tab} className="relative">
+            <button
+              onClick={() => smoothRoute(`/${tab}`)}
+              onMouseEnter={() => handleMouseEnter(tab)}
+              onMouseLeave={handleMouseLeave}
+              className="h-full"
+            >
+              {tab.slice(0, 1).toUpperCase() + tab.slice(1)}
+            </button>
             <div
-              className={clsx("absolute bottom-0 w-full h-[3px] bg-gray-400 transition-transform", {
+              className={clsx("absolute bottom-0 w-full h-[3px] bg-gray-300 transition-transform select-none", {
                 "scale-100": mouseEntered === tab || router.pathname === `/${tab}`,
                 "scale-0": !(mouseEntered === tab || router.pathname === `/${tab}`),
               })}
