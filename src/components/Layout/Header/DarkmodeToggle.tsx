@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import useDarkmodeRef from "@/utils/hooks/useDarkmodeRef";
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import clsx from "clsx";
+import useCommonContext from "@/utils/hooks/useCommonConrtext";
 
 export const MoonIcon = () => (
   <svg
@@ -38,32 +38,10 @@ export const SunIcon = () => (
 );
 
 export default React.memo(function DarkmodeToggle() {
-  const [isDark, setIsDark] = useState(false);
-  const { darkmodeRef } = useDarkmodeRef();
   const { absorbColorToBg, resetBg } = useCursorRef();
+  const { isDarkmode, isBelowSm, toggleDarkmode } = useCommonContext();
 
-  const isMobile = window.innerWidth < 640;
-
-  const toggleDarkmode = () => {
-    if (darkmodeRef.current) {
-      const isDark = darkmodeRef.current.classList.contains("dark");
-      if (isDark) {
-        darkmodeRef.current.classList.remove("dark");
-      } else {
-        darkmodeRef.current.classList.add("dark");
-      }
-      setIsDark(!isDark);
-    }
-  };
-
-  useEffect(() => {
-    if (darkmodeRef.current) {
-      const isDark = darkmodeRef.current.classList.contains("dark");
-      setIsDark(isDark);
-    }
-  }, [darkmodeRef]);
-
-  const divProps = isMobile
+  const divProps = isBelowSm
     ? {}
     : {
         onMouseEnter: () => absorbColorToBg("bg-gray-300"),
@@ -71,8 +49,8 @@ export default React.memo(function DarkmodeToggle() {
       };
 
   return (
-    <div onClick={toggleDarkmode} className={clsx("w-7 h-7 ", "sm:hover:text-white")} {...divProps}>
-      {isDark ? <SunIcon /> : <MoonIcon />}
+    <div className={clsx("w-7 h-7 sm:hover:text-background")} {...divProps}>
+      <button onClick={toggleDarkmode}>{isDarkmode ? <SunIcon /> : <MoonIcon />}</button>
     </div>
   );
 });

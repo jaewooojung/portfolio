@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Layout from "@/components/Layout";
-import useKeepingCursorPos from "@/utils/hooks/useKeepingCursorPos";
+import useKeepingPrev from "@/utils/hooks/useKeepingPrev";
 import HomeComps from "@/components/home";
+import { useTheme } from "next-themes";
 
 export default function Home() {
-  useKeepingCursorPos();
+  useKeepingPrev();
   return (
     <Layout>
       <Head>

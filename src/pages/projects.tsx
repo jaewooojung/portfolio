@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
-import useKeepingCursorPos from "@/utils/hooks/useKeepingCursorPos";
+import useKeepingPrev from "@/utils/hooks/useKeepingPrev";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Projects() {
-  useKeepingCursorPos();
+  useKeepingPrev();
   return (
     <Layout>
       <Head>

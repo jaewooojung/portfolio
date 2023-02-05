@@ -8,11 +8,11 @@ export default function HomeComps() {
     <div className="font-semibold">
       <h1 className={clsx("mb-3 text-3xl font-extrabold", "sm:text-5xl")}>{t("title")}</h1>
       <h2 className="mb-5 ml-1 text-sm">{t("subTitle")}</h2>
-      <div className="mb-5">
+      <p className="mb-5">
         <q className="">{t("q1")}</q>
         <br />
-        <div className="">학업을 마치고 가장 많이 드는 생각입니다.</div>
-      </div>
+        <span className="">{t("span1")}</span>
+      </p>
       <div>{t("hello")}</div>
       <p className="mb-2">{t("p1")}</p>
       <br />

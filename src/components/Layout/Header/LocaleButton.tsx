@@ -1,3 +1,4 @@
+import useCommonContext from "@/utils/hooks/useCommonConrtext";
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import clsx from "clsx";
 import { useRouter } from "next/router";
@@ -6,16 +7,16 @@ import React from "react";
 export default React.memo(function LocaleButton() {
   const router = useRouter();
   const { cursorRef } = useCursorRef();
-
-  const isMobile = window.innerWidth < 640;
+  const { isDarkmode, isBelowSm } = useCommonContext();
 
   const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 
   const handleClick = () => {
-    if (isMobile) {
+    if (isBelowSm) {
       router.replace(
         {
           pathname: router.asPath,
+          query: { isDarkmode },
         },
         router.asPath,
         {
@@ -29,7 +30,7 @@ export default React.memo(function LocaleButton() {
         router.replace(
           {
             pathname: router.asPath,
-            query: { cursorX, cursorY },
+            query: { cursorX, cursorY, isDarkmode },
           },
           router.asPath,
           {
@@ -39,9 +40,10 @@ export default React.memo(function LocaleButton() {
       }
     }
   };
+
   return (
     <div className={clsx("w-7 h-7 flex justify-center items-center", "underline-offset-2 sm:hover:underline")}>
-      <a onClick={handleClick}>{localeTo.toUpperCase()}</a>
+      <button onClick={handleClick}>{localeTo.toUpperCase()}</button>
     </div>
   );
 });

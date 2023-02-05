@@ -1,5 +1,5 @@
 import { ElementRefContext } from "@/context/elementRef";
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useMemo } from "react";
 
 const clearBgProperties = (element: HTMLDivElement) => {
   let prevBg: Array<string> = [];
@@ -27,38 +27,44 @@ export function useCursorRef() {
       cursorBorder.classList.remove("scale-150");
     }
   }, [cursorRef]);
-  const absorbColorToBg = (twColor: string) => {
-    if (cursorRef.current) {
-      const cursorDot = cursorRef.current.lastChild as HTMLDivElement;
-      clearBgProperties(cursorDot);
-      cursorDot.classList.remove("scale-[0.1]");
-      cursorDot.classList.add("scale-100", twColor);
-    }
-  };
-  const resetBg = () => {
+  const absorbColorToBg = useCallback(
+    (twColor: string) => {
+      if (cursorRef.current) {
+        const cursorDot = cursorRef.current.lastChild as HTMLDivElement;
+        clearBgProperties(cursorDot);
+        cursorDot.classList.remove("scale-[0.1]");
+        cursorDot.classList.add("scale-100", twColor);
+      }
+    },
+    [cursorRef]
+  );
+  const resetBg = useCallback(() => {
     if (cursorRef.current) {
       const cursorDot = cursorRef.current.lastChild as HTMLDivElement;
       clearBgProperties(cursorDot);
       cursorDot.classList.remove("scale-100");
       cursorDot.classList.add("scale-[0.1]", "bg-gray-400");
     }
-  };
-  const scaleUpAndAbsorbColor = (twColor: string) => {
-    if (cursorRef.current) {
-      const cursorDot = cursorRef.current.lastChild as HTMLDivElement;
-      clearBgProperties(cursorDot);
-      cursorDot.classList.remove("scale-[0.1]");
-      cursorDot.classList.add("scale-150", twColor);
-    }
-  };
-  const scaleDownAndResetBg = () => {
+  }, [cursorRef]);
+  const scaleUpAndAbsorbColor = useCallback(
+    (twColor: string) => {
+      if (cursorRef.current) {
+        const cursorDot = cursorRef.current.lastChild as HTMLDivElement;
+        clearBgProperties(cursorDot);
+        cursorDot.classList.remove("scale-[0.1]");
+        cursorDot.classList.add("scale-150", twColor);
+      }
+    },
+    [cursorRef]
+  );
+  const scaleDownAndResetBg = useCallback(() => {
     if (cursorRef.current) {
       const cursorDot = cursorRef.current.lastChild as HTMLDivElement;
       clearBgProperties(cursorDot);
       cursorDot.classList.remove("scale-150");
       cursorDot.classList.add("scale-[0.1]", "bg-gray-400");
     }
-  };
+  }, [cursorRef]);
 
   if (cursorRef) {
     return {

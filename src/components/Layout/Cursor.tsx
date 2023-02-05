@@ -1,5 +1,6 @@
-import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import clsx from "clsx";
+import useCommonContext from "@/utils/hooks/useCommonConrtext";
+import { useCursorRef } from "@/utils/hooks/useCursorRef";
 
 export default function Cursor() {
   const { cursorRef } = useCursorRef();

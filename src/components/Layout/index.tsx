@@ -19,6 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setFadein(true);
+    console.log("ontouchstart" in window, "11");
   }, []);
 
   return (
@@ -34,7 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           className={clsx(
             "px-4 text-zinc-800 transition-opacity duration-150",
             "sm:px-10 lg:px-28 xl:px-60 2xl:px-80",
-            "dark:bg-zinc-900 dark:text-zinc-400",
+            "dark:text-zinc-400",
             {
               "opacity-100": fadein,
               "opacity-0": !fadein,

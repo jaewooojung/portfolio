@@ -1,7 +1,7 @@
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import clsx from "clsx";
-import router from "next/router";
+import router, { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import DarkmodeToggle from "./DarkmodeToggle";
 import LocaleButton from "./LocaleButton";
@@ -12,6 +12,7 @@ export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
   const { scaleUpBorder, scaleDownBorder, absorbColorToBg, resetBg, scaleUpAndAbsorbColor, scaleDownAndResetBg } =
     useCursorRef();
   const { smoothRoute } = useSmoothRoute();
+  const router = useRouter();
   const handleMouseEnter = useCallback(
     (route: string) => {
       setMouseEntered(route);

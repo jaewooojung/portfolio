@@ -14,9 +14,9 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
     setOpen((prev) => !prev);
   };
   return (
-    <nav className={clsx("h-full flex justify-between items-center", "sm:hidden")}>
+    <nav className={clsx("relative h-full flex justify-between items-center", "sm:hidden")}>
       <Logo />
-      <div onClick={toggleHamburgur} className="relative z-20 w-5 h-5">
+      <button onClick={toggleHamburgur} className="relative z-20 w-5 h-5">
         {open ? (
           "x"
         ) : (
@@ -26,35 +26,33 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
             <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>
           </div>
         )}
-      </div>
+      </button>
       <div
         className={clsx(
-          "fixed z-10 inset-0 pt-20 bg-background transition-transform translate-x-full",
+          "fixed inset-0 z-10 pt-20 bg-background transition-transform translate-x-full",
           "dark:bg-zinc-900",
           {
             "translate-x-0": open,
           }
         )}
       >
-        <ul className="mb-10 w-full flex flex-col items-center gap-10 text-xl font-bold">
+        <ul className="relative mb-10 w-full flex flex-col items-center gap-10 text-xl font-bold">
           <li
-            onClick={() => smoothRoute("/")}
             key="home"
             className={clsx("underline-offset-8", {
               underline: router.pathname === "/",
             })}
           >
-            HOME
+            <button onClick={() => smoothRoute("/")}>HOME</button>
           </li>
           {tabs.map((tab) => (
             <li
-              onClick={() => smoothRoute(`/${tab}`)}
               key={tab}
               className={clsx("underline-offset-8", {
                 underline: router.pathname.slice(1) === tab,
               })}
             >
-              {tab.toUpperCase()}
+              <button onClick={() => smoothRoute(`/${tab}`)}>{tab.toUpperCase()}</button>
             </li>
           ))}
         </ul>

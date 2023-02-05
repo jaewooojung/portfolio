@@ -8,8 +8,11 @@
 }
 
 html {
-  cursor: none;
+  /* cursor: none; */
   overflow: hidden auto;
+}
+body {
+  /* cursor: none; */
 }
 
 * {

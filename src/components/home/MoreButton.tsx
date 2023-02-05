@@ -1,3 +1,4 @@
+import useCommonContext from "@/utils/hooks/useCommonConrtext";
 import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import clsx from "clsx";
@@ -20,8 +21,9 @@ export default function MoreButton() {
   const { t } = useTranslation("home");
   const { scaleUpAndAbsorbColor, scaleDownAndResetBg } = useCursorRef();
   const { smoothRoute } = useSmoothRoute();
-  const isMobile = window.innerWidth < 640;
-  const buttonProps = isMobile
+  const { isBelowSm } = useCommonContext();
+
+  const buttonProps = isBelowSm
     ? {}
     : {
         onMouseEnter: () => scaleUpAndAbsorbColor("bg-emerald-500"),

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useCallback, useEffect } from "react";
+import useCommonContext from "./useCommonConrtext";
 import { useCursorRef } from "./useCursorRef";
 import useLayoutRef from "./useLayoutRef";
 
@@ -7,6 +8,7 @@ export default function useSmoothRoute() {
   const router = useRouter();
   const { cursorRef } = useCursorRef();
   const { layoutRef } = useLayoutRef();
+  const { isDarkmode } = useCommonContext();
 
   const smoothRoute = useCallback(
     (value: string) => {
@@ -21,14 +23,14 @@ export default function useSmoothRoute() {
           router.push(
             {
               pathname: value,
-              query: { cursorX, cursorY },
+              query: { cursorX, cursorY, isDarkmode },
             },
             value
           );
         }, 150);
       }
     },
-    [cursorRef, layoutRef, router]
+    [cursorRef, isDarkmode, layoutRef, router]
   );
 
   return { smoothRoute };

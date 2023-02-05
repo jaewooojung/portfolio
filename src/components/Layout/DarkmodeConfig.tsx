@@ -1,22 +1,12 @@
-import useDarkmodeRef from "@/utils/hooks/useDarkmodeRef";
+import useCommonContext from "@/utils/hooks/useCommonConrtext";
 import clsx from "clsx";
 
 export default function DarkmodeConfig({ children }: { children: React.ReactNode }) {
-  const { darkmodeRef } = useDarkmodeRef();
-
-  let isDark = false;
-  // if (
-  //   localStorage.theme === "dark" ||
-  //   (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  // ) {
-  //   isDark = true;
-  // }
-
+  const { isDarkmode } = useCommonContext();
   return (
     <div
-      ref={darkmodeRef}
       className={clsx({
-        dark: isDark,
+        dark: isDarkmode,
       })}
     >
       {children}
