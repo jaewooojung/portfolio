@@ -7,9 +7,9 @@ import useCommonContext from "@/utils/hooks/useCommonConrtext";
 export default React.memo(function Logo() {
   const { smoothRoute } = useSmoothRoute();
   const { scaleUpAndAbsorbColor, scaleDownAndResetBg } = useCursorRef();
-  const { isBelowSm } = useCommonContext();
+  const { isBelowLg } = useCommonContext();
 
-  const buttonProps = isBelowSm
+  const buttonProps = isBelowLg
     ? {}
     : {
         onMouseEnter: () => scaleUpAndAbsorbColor("bg-emerald-500"),

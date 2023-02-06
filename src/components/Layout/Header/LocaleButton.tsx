@@ -7,16 +7,15 @@ import React from "react";
 export default React.memo(function LocaleButton() {
   const router = useRouter();
   const { cursorRef } = useCursorRef();
-  const { isDarkmode, isBelowSm } = useCommonContext();
+  const { isBelowLg } = useCommonContext();
 
   const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 
   const handleClick = () => {
-    if (isBelowSm) {
+    if (isBelowLg) {
       router.replace(
         {
           pathname: router.asPath,
-          query: { isDarkmode },
         },
         router.asPath,
         {
@@ -30,7 +29,7 @@ export default React.memo(function LocaleButton() {
         router.replace(
           {
             pathname: router.asPath,
-            query: { cursorX, cursorY, isDarkmode },
+            query: { cursorX, cursorY },
           },
           router.asPath,
           {
@@ -42,7 +41,7 @@ export default React.memo(function LocaleButton() {
   };
 
   return (
-    <div className={clsx("w-7 h-7 flex justify-center items-center", "underline-offset-2 sm:hover:underline")}>
+    <div className={clsx("w-7 h-7 flex justify-center items-center", "lg:hover:underline lg:underline-offset-2")}>
       <button onClick={handleClick}>{localeTo.toUpperCase()}</button>
     </div>
   );

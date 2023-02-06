@@ -6,6 +6,19 @@ import DarkmodeToggle from "./DarkmodeToggle";
 import LocaleButton from "./LocaleButton";
 import Logo from "./Logo";
 
+const CloseIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-full h-full"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
+
 export default function NavMobile({ tabs }: { tabs: Array<string> }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -14,11 +27,11 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
     setOpen((prev) => !prev);
   };
   return (
-    <nav className={clsx("relative h-full flex justify-between items-center", "sm:hidden")}>
+    <nav className={clsx("relative h-full flex justify-between items-center", "lg:hidden")}>
       <Logo />
       <button onClick={toggleHamburgur} className="relative z-20 w-5 h-5">
         {open ? (
-          "x"
+          <CloseIcon />
         ) : (
           <div className="w-full h-full flex flex-col justify-between">
             <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>

@@ -8,17 +8,9 @@
 }
 
 html {
-  /* cursor: none; */
   overflow: hidden auto;
-}
-body {
-  /* cursor: none; */
 }
 
 * {
   font-family: NanumSquare, sans-serif, "Courier New", Courier, monospace;
-}
-
-a {
-  /* cursor: none; */
 }

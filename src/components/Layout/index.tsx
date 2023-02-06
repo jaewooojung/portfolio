@@ -3,23 +3,17 @@ import Cursor from "./Cursor";
 import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
 import useLayoutRef from "@/utils/hooks/useLayoutRef";
-import dynamic from "next/dynamic";
 import Background from "./Background";
 import SideBar from "./SideBar";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 
-const DynamicDarkmodeConfig = dynamic(() => import("./DarkmodeConfig"), {
-  ssr: false,
-});
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { layoutRef } = useLayoutRef();
-  const [fadein, setFadein] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setFadein(true);
-    console.log("ontouchstart" in window, "11");
+    setMounted(true);
   }, []);
 
   return (
@@ -29,34 +23,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DynamicDarkmodeConfig>
-        <div
-          ref={layoutRef}
-          className={clsx(
-            "px-4 text-zinc-800 transition-opacity duration-150",
-            "sm:px-10 lg:px-28 xl:px-60 2xl:px-80",
-            "dark:text-zinc-400",
-            {
-              "opacity-100": fadein,
-              "opacity-0": !fadein,
-            }
-          )}
-        >
-          <Background />
-          <Cursor />
-          <SideBar />
-          <LayoutHeader />
-          <main
-            className={clsx(
-              "relative pt-10 pb-20",
-              "sm:pt-0 sm:pb-0 sm:px-10 md:pt-14 md:pb-20 lg:py-0 lg:px-16 xl:px-32 2xl:px-40"
-            )}
-          >
-            {children}
-          </main>
-          <LayoutFooter />
-        </div>
-      </DynamicDarkmodeConfig>
+      {/* <Background /> */}
+      <div
+        ref={layoutRef}
+        className={clsx(
+          "px-4 text-zinc-800 transition-opacity duration-300 max-w-[1920px] min-h-screen",
+          "sm:px-10 lg:px-28 xl:px-32 2xl:px-60",
+          "dark:text-zinc-400",
+          {
+            "opacity-100": mounted,
+            "opacity-0": !mounted,
+          }
+        )}
+      >
+        <Cursor />
+        <SideBar />
+        <LayoutHeader />
+        <main className={clsx("relative pt-8", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-12")}>{children}</main>
+        <LayoutFooter />
+      </div>
     </>
   );
 }

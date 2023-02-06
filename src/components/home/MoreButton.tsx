@@ -21,9 +21,9 @@ export default function MoreButton() {
   const { t } = useTranslation("home");
   const { scaleUpAndAbsorbColor, scaleDownAndResetBg } = useCursorRef();
   const { smoothRoute } = useSmoothRoute();
-  const { isBelowSm } = useCommonContext();
+  const { isBelowLg } = useCommonContext();
 
-  const buttonProps = isBelowSm
+  const buttonProps = isBelowLg
     ? {}
     : {
         onMouseEnter: () => scaleUpAndAbsorbColor("bg-emerald-500"),
