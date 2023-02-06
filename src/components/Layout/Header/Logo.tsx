@@ -17,13 +17,13 @@ export default React.memo(function Logo() {
       };
   return (
     <div>
-      <button
+      <a
         onClick={() => smoothRoute("/")}
         className={clsx("text-3xl font-extrabold text-emerald-500", "sm:text-5xl lg:hover:text-background")}
         {...buttonProps}
       >
-        JW.
-      </button>
+        JW
+      </a>
     </div>
   );
 });

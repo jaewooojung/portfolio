@@ -38,7 +38,7 @@ export const SunIcon = () => (
   </svg>
 );
 
-export default React.memo(function DarkmodeToggle() {
+export default React.memo(function DarkmodeToggleButton() {
   const { absorbColorToBg, resetBg } = useCursorRef();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);

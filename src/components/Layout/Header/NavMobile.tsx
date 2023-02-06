@@ -2,7 +2,7 @@ import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import DarkmodeToggle from "./DarkmodeToggle";
+import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import LocaleButton from "./LocaleButton";
 import Logo from "./Logo";
 
@@ -56,7 +56,7 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
               underline: router.pathname === "/",
             })}
           >
-            <button onClick={() => smoothRoute("/")}>HOME</button>
+            <a onClick={() => smoothRoute("/")}>HOME</a>
           </li>
           {tabs.map((tab) => (
             <li
@@ -65,13 +65,13 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
                 underline: router.pathname.slice(1) === tab,
               })}
             >
-              <button onClick={() => smoothRoute(`/${tab}`)}>{tab.toUpperCase()}</button>
+              <a onClick={() => smoothRoute(`/${tab}`)}>{tab.toUpperCase()}</a>
             </li>
           ))}
         </ul>
         <div className="w-full flex justify-center gap-20">
           <LocaleButton />
-          <DarkmodeToggle />
+          <DarkmodeToggleButton />
         </div>
       </div>
     </nav>
