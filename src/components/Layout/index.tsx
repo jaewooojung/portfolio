@@ -1,20 +1,23 @@
+import clsx from "clsx";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import Cursor from "./Cursor";
 import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
 import useLayoutRef from "@/utils/hooks/useLayoutRef";
 import Background from "./Background";
 import SideBar from "./SideBar";
-import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { LAYOUT_FADE_DURATION } from "../../constant";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { layoutRef } = useLayoutRef();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+  }, [router]);
 
   return (
     <>
@@ -27,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div
         ref={layoutRef}
         className={clsx(
-          "px-4 text-zinc-800 transition-opacity duration-300 max-w-[1920px] min-h-screen",
+          `px-4 text-zinc-800 transition-opacity duration-${LAYOUT_FADE_DURATION} max-w-[1920px] min-h-screen`,
           "sm:px-10 lg:px-28 xl:px-32 2xl:px-60",
           "dark:text-zinc-400",
           {

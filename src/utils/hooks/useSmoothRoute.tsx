@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { useCursorRef } from "./useCursorRef";
 import useLayoutRef from "./useLayoutRef";
+import { LAYOUT_FADE_DURATION } from "../../constant";
 
 export default function useSmoothRoute() {
   const router = useRouter();
@@ -15,14 +16,21 @@ export default function useSmoothRoute() {
       }
       if (layoutRef.current && cursorRef.current) {
         layoutRef.current.classList.replace("opacity-100", "opacity-0");
-        setTimeout(() => {
+        Promise.all([
+          router.prefetch(value, value, { locale: router.locale }),
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("");
+            }, LAYOUT_FADE_DURATION);
+          }),
+        ]).then(() => {
           router.push(
             {
               pathname: value,
             },
             value
           );
-        }, 300);
+        });
       }
     },
     [cursorRef, layoutRef, router]

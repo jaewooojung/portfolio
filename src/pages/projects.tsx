@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ProjectsComps from "@/components/projects";
 
 export default function Projects() {
   return (
@@ -8,7 +9,7 @@ export default function Projects() {
       <Head>
         <title>Projects | Jaewoo Jung</title>
       </Head>
-      <main>projects</main>
+      <ProjectsComps />
     </Layout>
   );
 }
@@ -16,7 +17,7 @@ export default function Projects() {
 export const getStaticProps = async ({ locale }: { locale: string }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
+      ...(await serverSideTranslations(locale, ["projects"])),
     },
   };
 };

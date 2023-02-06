@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
+import { PageTitle } from "../reuse/common";
 import LinkButton from "../reuse/LinkButton";
 import AboutSection from "./Section";
 
@@ -7,7 +8,7 @@ export default function AboutComps() {
   const { t } = useTranslation("about");
   return (
     <div>
-      <h1 className={clsx("mb-10 text-2xl font-bold", "lg:text-4xl 2xl:text-6xl")}>{t("title")}</h1>
+      <PageTitle title={t("title")} />
       <AboutSection
         title={t("s1Title")}
         content={
