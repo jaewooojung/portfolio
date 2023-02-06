@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Background /> */}
+      <Background />
       <div
         ref={layoutRef}
         className={clsx(
@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Cursor />
         <SideBar />
         <LayoutHeader />
-        <main className={clsx("relative pt-8", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-12")}>{children}</main>
+        <main className={clsx("relative pt-8 pb-14", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-10 lg:pb-0")}>{children}</main>
         <LayoutFooter />
       </div>
     </>

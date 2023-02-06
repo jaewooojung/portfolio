@@ -15,12 +15,12 @@ export const CommonProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth < 640) {
+      if (window.innerWidth < 1024) {
         window.document.body.style.cursor = "default";
       } else {
         window.document.body.style.cursor = "none";
       }
-      setisBelowLg(window.innerWidth < 640);
+      setisBelowLg(window.innerWidth < 1024);
     };
     onResize();
     window.addEventListener("resize", onResize);

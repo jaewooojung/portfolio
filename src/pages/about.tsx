@@ -1,16 +1,15 @@
 import Head from "next/head";
-import Layout from "@/components/Layout";
-import useKeepingCursor from "@/utils/hooks/useKeepingCursor";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Layout from "@/components/Layout";
+import AboutComps from "@/components/about";
 
 export default function About() {
-  useKeepingCursor();
   return (
     <Layout>
       <Head>
         <title>About me | Jaewoo Jung</title>
       </Head>
-      <main>about</main>
+      <AboutComps />
     </Layout>
   );
 }
@@ -18,7 +17,7 @@ export default function About() {
 export const getStaticProps = async ({ locale }: { locale: string }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
+      ...(await serverSideTranslations(locale, ["about"])),
     },
   };
 };

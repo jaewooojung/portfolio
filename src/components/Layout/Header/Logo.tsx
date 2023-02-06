@@ -19,7 +19,7 @@ export default React.memo(function Logo() {
     <div>
       <button
         onClick={() => smoothRoute("/")}
-        className={clsx("text-3xl font-extrabold text-emerald-500", "sm:text-5xl sm:hover:text-background")}
+        className={clsx("text-3xl font-extrabold text-emerald-500", "sm:text-5xl lg:hover:text-background")}
         {...buttonProps}
       >
         JW.

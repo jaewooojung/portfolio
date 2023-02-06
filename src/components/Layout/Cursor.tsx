@@ -4,7 +4,13 @@ import { useCursorRef } from "@/utils/hooks/useCursorRef";
 export default function Cursor() {
   const { cursorRef } = useCursorRef();
   return (
-    <div ref={cursorRef} className={clsx("hidden fixed w-12 h-12 justify-center items-center rounded-full", "lg:flex")}>
+    <div
+      ref={cursorRef}
+      className={clsx(
+        "hidden fixed w-12 h-12 justify-center items-center rounded-full",
+        "lg:flex lg:-top-full lg:-left-full"
+      )}
+    >
       <div
         className={clsx(
           "absolute inset-0 border border-gray-400 rounded-full transition-transform",

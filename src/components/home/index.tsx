@@ -6,7 +6,7 @@ export default function HomeComps() {
   const { t } = useTranslation("home");
   return (
     <div className="font-semibold">
-      <h1 className={clsx("mb-3 text-3xl font-extrabold", "sm:text-5xl")}>{t("title")}</h1>
+      <h1 className={clsx("mb-3 text-3xl font-extrabold", "lg:text-5xl 2xl:text-7xl")}>{t("title")}</h1>
       <h2 className="mb-5 ml-1 text-sm">{t("subTitle")}</h2>
       <p className="mb-5">
         <q className="">{t("q1")}</q>

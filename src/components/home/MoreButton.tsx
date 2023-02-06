@@ -32,7 +32,7 @@ export default function MoreButton() {
   return (
     <button
       onClick={() => smoothRoute("/about")}
-      className={clsx("flex text-emerald-500", "sm:hover:text-background")}
+      className={clsx("flex text-emerald-500", "lg:hover:text-background")}
       {...buttonProps}
     >
       <span className="mr-1">{t("button1")}</span> <ArrowRightIcon />
