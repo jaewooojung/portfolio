@@ -27,7 +27,7 @@ export default function AboutSection({
   content: React.ReactNode;
 }) {
   return (
-    <section className="mb-8">
+    <section className="mb-14">
       <div
         className={clsx(
           "mb-4 flex flex-col justify-start items-start",
@@ -40,7 +40,7 @@ export default function AboutSection({
           </div>
           {title}
         </div>
-        <span>{linkIcon}</span>
+        <span className={clsx("pl-2", "lg:pl-0")}>{linkIcon}</span>
       </div>
       <div className={clsx("px-2 text-sm leading-relaxed", "lg:px-4")}>{content}</div>
     </section>

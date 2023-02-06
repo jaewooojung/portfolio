@@ -8,7 +8,7 @@ export default function Cursor() {
       ref={cursorRef}
       className={clsx(
         "hidden fixed w-12 h-12 justify-center items-center rounded-full",
-        "lg:flex lg:-top-full lg:-left-full"
+        "lg:-top-full lg:-left-full lg:flex"
       )}
     >
       <div

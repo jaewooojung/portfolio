@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
+import LinkButton from "../reuse/LinkButton";
 import AboutSection from "./Section";
 
 export default function AboutComps() {
@@ -17,7 +18,7 @@ export default function AboutComps() {
       />
       <AboutSection
         title="스킬"
-        linkIcon="project 링크"
+        linkIcon={<LinkButton title="프로젝트" path="/projects" />}
         content={
           <ul className="flex flex-col gap-2">
             <li>
@@ -59,10 +60,9 @@ export default function AboutComps() {
           </ul>
         }
       />
-      <AboutSection title="개발 경력" content={<div>어서 채우자</div>} />
+      <AboutSection title="개발 경력" content={<div>현업 경험은 아직 없습니다.</div>} />
       <AboutSection
         title="그 외"
-        linkIcon="1"
         content={
           <ul className="flex flex-col gap-2">
             <li>

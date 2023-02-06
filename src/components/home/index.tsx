@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
-import MoreButton from "./MoreButton";
+import LinkButton from "../reuse/LinkButton";
 
 export default function HomeComps() {
   const { t } = useTranslation("home");
@@ -23,7 +23,7 @@ export default function HomeComps() {
       <br />
       <hr />
       <br />
-      <MoreButton />
+      <LinkButton title={t("button1")} path="/about" />
     </div>
   );
 }
