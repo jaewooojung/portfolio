@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { useContext } from "react";
-import { ElementRefContext } from "@/context/elementRef";
+import { CursorContext } from "@/context/cursor";
 
 export default function Cursor() {
-  const { cursorRef } = useContext(ElementRefContext);
+  const { cursorRef } = useContext(CursorContext);
   return (
     <div
       ref={cursorRef}

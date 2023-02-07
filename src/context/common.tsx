@@ -1,17 +1,20 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, createRef, RefObject, useEffect, useState } from "react";
 
 interface ICommon {
   isBelowLg: boolean;
+  layoutRef: RefObject<HTMLDivElement>;
 }
 
 const initialState = {
-  isBelowLg: true,
+  isBelowLg: false,
+  layoutRef: createRef<HTMLDivElement>(),
 };
 
 export const CommonContext = createContext<ICommon>(initialState);
 
 export const CommonProvider = ({ children }: { children: React.ReactNode }) => {
   const [isBelowLg, setisBelowLg] = useState(initialState.isBelowLg);
+  const { layoutRef } = initialState;
 
   useEffect(() => {
     const onResize = () => {
@@ -29,5 +32,5 @@ export const CommonProvider = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  return <CommonContext.Provider value={{ isBelowLg }}>{children}</CommonContext.Provider>;
+  return <CommonContext.Provider value={{ isBelowLg, layoutRef }}>{children}</CommonContext.Provider>;
 };

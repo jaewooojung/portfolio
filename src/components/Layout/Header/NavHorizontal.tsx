@@ -1,17 +1,15 @@
-import { ElementRefContext } from "@/context/elementRef";
-import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
+import { CursorContext } from "@/context/cursor";
 import clsx from "clsx";
-import { useRouter } from "next/router";
 import { useCallback, useContext, useState } from "react";
+import { NavProps } from ".";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import LocaleButton from "./LocaleButton";
 import Logo from "./Logo";
 
-export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
+export default function NavHorizontal(props: NavProps) {
+  const { tabs, router, smoothPush } = props;
   const [mouseEntered, setMouseEntered] = useState("");
-  const { cursorAPI } = useContext(ElementRefContext);
-  const { smoothRoute } = useSmoothRoute();
-  const router = useRouter();
+  const { cursorAPI } = useContext(CursorContext);
 
   const handleMouseEnter = useCallback(
     (route: string) => {
@@ -38,7 +36,7 @@ export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
         {tabs.map((tab) => (
           <li key={tab} className="relative">
             <a
-              onClick={() => smoothRoute(`/${tab}`)}
+              onClick={() => smoothPush(`/${tab}`)}
               onMouseEnter={() => handleMouseEnter(tab)}
               onMouseLeave={handleMouseLeave}
               className="h-full"

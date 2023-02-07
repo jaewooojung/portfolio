@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import useCommonContext from "@/utils/hooks/useCommonConrtext";
-import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
+import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import { useContext } from "react";
-import { ElementRefContext } from "@/context/elementRef";
+import { CursorContext } from "@/context/cursor";
+import { CommonContext } from "@/context/common";
 
 const ArrowRightIcon = () => (
   <svg
@@ -22,9 +22,9 @@ const ArrowRightIcon = () => (
 );
 
 export default function LinkButton({ title, path }: { title: string; path: string }) {
-  const { cursorAPI } = useContext(ElementRefContext);
-  const { smoothRoute } = useSmoothRoute();
-  const { isBelowLg } = useCommonContext();
+  const { cursorAPI } = useContext(CursorContext);
+  const { isBelowLg } = useContext(CommonContext);
+  const { smoothPush } = useSmoothPush();
 
   const buttonProps = isBelowLg
     ? {}
@@ -35,7 +35,7 @@ export default function LinkButton({ title, path }: { title: string; path: strin
 
   return (
     <button
-      onClick={() => smoothRoute(path)}
+      onClick={() => smoothPush(path)}
       className={clsx("flex text-emerald-500", "lg:hover:text-background")}
       {...buttonProps}
     >

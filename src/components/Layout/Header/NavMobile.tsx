@@ -1,7 +1,8 @@
-import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
+import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import clsx from "clsx";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { useCallback, useState } from "react";
+import { NavProps } from ".";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import LocaleButton from "./LocaleButton";
 import Logo from "./Logo";
@@ -19,13 +20,14 @@ const CloseIcon = () => (
   </svg>
 );
 
-export default function NavMobile({ tabs }: { tabs: Array<string> }) {
-  const router = useRouter();
+export default function NavMobile(props: NavProps) {
+  const { tabs, router, smoothPush } = props;
   const [open, setOpen] = useState(false);
-  const { smoothRoute } = useSmoothRoute();
+
   const toggleHamburgur = useCallback(() => {
     setOpen((prev) => !prev);
   }, []);
+
   return (
     <nav className={clsx("relative h-full flex justify-between items-center", "lg:hidden")}>
       <Logo />
@@ -56,7 +58,7 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
               underline: router.pathname === "/",
             })}
           >
-            <a onClick={() => smoothRoute("/")}>HOME</a>
+            <a onClick={() => smoothPush("/")}>HOME</a>
           </li>
           {tabs.map((tab) => (
             <li
@@ -65,7 +67,7 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
                 underline: router.pathname.slice(1) === tab,
               })}
             >
-              <a onClick={() => smoothRoute(`/${tab}`)}>{tab.toUpperCase()}</a>
+              <a onClick={() => smoothPush(`/${tab}`)}>{tab.toUpperCase()}</a>
             </li>
           ))}
         </ul>

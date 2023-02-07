@@ -1,5 +1,5 @@
-import { ElementRefContext } from "@/context/elementRef";
-import useCommonContext from "@/utils/hooks/useCommonConrtext";
+import { CommonContext } from "@/context/common";
+import { CursorContext } from "@/context/cursor";
 import clsx from "clsx";
 import { useContext } from "react";
 
@@ -63,8 +63,8 @@ function AboveLgSideBar({ liProps }: { liProps: any }) {
 }
 
 export default function SideBar() {
-  const { cursorAPI } = useContext(ElementRefContext);
-  const { isBelowLg } = useCommonContext();
+  const { cursorAPI } = useContext(CursorContext);
+  const { isBelowLg } = useContext(CommonContext);
   const liProps = isBelowLg
     ? {}
     : {

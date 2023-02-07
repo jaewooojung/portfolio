@@ -4,9 +4,8 @@ function noProviderHandler(contextName: string) {
   console.error(`Cannot found ${contextName} Provider`);
 }
 
-interface IElementRef {
+interface ICursor {
   cursorRef: RefObject<HTMLDivElement>;
-  layoutRef: RefObject<HTMLDivElement>;
   cursorAPI: {
     scaleUpBorder: () => void;
     scaleDownBorder: () => void;
@@ -17,9 +16,8 @@ interface IElementRef {
   };
 }
 
-const initialRefs = {
+const initialState = {
   cursorRef: createRef<HTMLDivElement>(),
-  layoutRef: createRef<HTMLDivElement>(),
   cursorAPI: {
     scaleUpBorder: () => noProviderHandler("ElementRef context - scaleUpBorder"),
     scaleDownBorder: () => noProviderHandler("ElementRef context - scaleDownBorder"),
@@ -30,7 +28,7 @@ const initialRefs = {
   },
 };
 
-export const ElementRefContext = createContext<IElementRef>(initialRefs);
+export const CursorContext = createContext<ICursor>(initialState);
 
 const clearBgProperties = (element: HTMLDivElement) => {
   let prevBg: Array<string> = [];
@@ -44,8 +42,8 @@ const clearBgProperties = (element: HTMLDivElement) => {
   });
 };
 
-export const ElementRefProvider = ({ children }: { children: React.ReactNode }) => {
-  const { cursorRef, layoutRef } = initialRefs;
+export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
+  const { cursorRef } = initialState;
 
   const scaleUpBorder = useCallback(() => {
     if (cursorRef.current) {
@@ -123,7 +121,5 @@ export const ElementRefProvider = ({ children }: { children: React.ReactNode }) 
     };
   }, [cursorRef]);
 
-  return (
-    <ElementRefContext.Provider value={{ cursorRef, layoutRef, cursorAPI }}>{children}</ElementRefContext.Provider>
-  );
+  return <CursorContext.Provider value={{ cursorRef, cursorAPI }}>{children}</CursorContext.Provider>;
 };

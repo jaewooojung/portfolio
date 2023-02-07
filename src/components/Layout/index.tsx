@@ -1,23 +1,16 @@
 import clsx from "clsx";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Cursor from "./Cursor";
 import LayoutFooter from "./Footer";
 import LayoutHeader from "./Header";
-import useLayoutRef from "@/utils/hooks/useLayoutRef";
 import Background from "./Background";
 import SideBar from "./SideBar";
 import { LAYOUT_FADE_DURATION } from "../../constant";
+import { useContext } from "react";
+import { CommonContext } from "@/context/common";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { layoutRef } = useLayoutRef();
-  const router = useRouter();
-  useEffect(() => {
-    router.events.on("routeChangeStart", (e) => {
-      console.log(e, 1);
-    });
-  }, [router]);
+  const { layoutRef } = useContext(CommonContext);
 
   return (
     <>

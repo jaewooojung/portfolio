@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
 import { PageTitle } from "../reuse/common";
-import LinkButton from "../reuse/LinkButton";
 import ProjectsBox from "./Box";
 import { getProjects } from "./projects";
 

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import clsx from "clsx";
-import useCommonContext from "@/utils/hooks/useCommonConrtext";
 import { useTheme } from "next-themes";
-import { ElementRefContext } from "@/context/elementRef";
+import { CursorContext } from "@/context/cursor";
+import { CommonContext } from "@/context/common";
 
 export const MoonIcon = () => (
   <svg
@@ -39,10 +39,9 @@ export const SunIcon = () => (
 );
 
 export default React.memo(function DarkmodeToggleButton() {
-  const { cursorAPI } = useContext(ElementRefContext);
+  const { cursorAPI } = useContext(CursorContext);
+  const { isBelowLg } = useContext(CommonContext);
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const { isBelowLg } = useCommonContext();
 
   const toggleTheme = () => {
     if (theme === "dark") {
@@ -51,10 +50,6 @@ export default React.memo(function DarkmodeToggleButton() {
       setTheme("dark");
     }
   };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const divProps = isBelowLg
     ? {}
@@ -65,7 +60,7 @@ export default React.memo(function DarkmodeToggleButton() {
 
   return (
     <div className={clsx("w-5 h-5 lg:hover:text-background")} {...divProps}>
-      {mounted && <button onClick={toggleTheme}>{theme === "dark" ? <SunIcon /> : <MoonIcon />}</button>}
+      <button onClick={toggleTheme}>{theme === "dark" ? <SunIcon /> : <MoonIcon />}</button>
     </div>
   );
 });
