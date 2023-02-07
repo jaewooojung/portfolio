@@ -2,14 +2,12 @@ import React, { useContext } from "react";
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import clsx from "clsx";
 import { CursorContext } from "@/context/cursor";
-import { CommonContext } from "@/context/common";
 
 export default React.memo(function Logo() {
   const { smoothPush } = useSmoothPush();
-  const { cursorAPI } = useContext(CursorContext);
-  const { isBelowLg } = useContext(CommonContext);
+  const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
 
-  const buttonProps = isBelowLg
+  const buttonProps = isScreenBelowLg
     ? {}
     : {
         onMouseEnter: () => cursorAPI.scaleUpAndAbsorbColor("bg-emerald-500"),

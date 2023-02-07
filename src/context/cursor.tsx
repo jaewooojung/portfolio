@@ -1,10 +1,11 @@
-import { createContext, createRef, RefObject, useCallback, useEffect, useMemo } from "react";
+import { createContext, createRef, RefObject, useCallback, useEffect, useMemo, useState } from "react";
 
 function noProviderHandler(contextName: string) {
   console.error(`Cannot found ${contextName} Provider`);
 }
 
 interface ICursor {
+  isScreenBelowLg: boolean;
   cursorRef: RefObject<HTMLDivElement>;
   cursorAPI: {
     scaleUpBorder: () => void;
@@ -17,6 +18,7 @@ interface ICursor {
 }
 
 const initialState = {
+  isScreenBelowLg: false,
   cursorRef: createRef<HTMLDivElement>(),
   cursorAPI: {
     scaleUpBorder: () => noProviderHandler("ElementRef context - scaleUpBorder"),
@@ -43,6 +45,7 @@ const clearBgProperties = (element: HTMLDivElement) => {
 };
 
 export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isScreenBelowLg, setIsScreenBelowLg] = useState(initialState.isScreenBelowLg);
   const { cursorRef } = initialState;
 
   const scaleUpBorder = useCallback(() => {
@@ -110,16 +113,28 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        window.document.body.style.cursor = "default";
+      } else {
+        window.document.body.style.cursor = "none";
+      }
+      setIsScreenBelowLg(window.innerWidth < 1024);
+    };
+    handleResize();
+
     const handleMousemove = (event: MouseEvent) => {
       if (cursorRef.current) {
         cursorRef.current.setAttribute("style", `top: ${event.y - 24}px; left: ${event.x - 24}px`);
       }
     };
+    window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMousemove);
     () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMousemove);
     };
   }, [cursorRef]);
 
-  return <CursorContext.Provider value={{ cursorRef, cursorAPI }}>{children}</CursorContext.Provider>;
+  return <CursorContext.Provider value={{ isScreenBelowLg, cursorRef, cursorAPI }}>{children}</CursorContext.Provider>;
 };

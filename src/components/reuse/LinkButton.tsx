@@ -22,11 +22,10 @@ const ArrowRightIcon = () => (
 );
 
 export default function LinkButton({ title, path }: { title: string; path: string }) {
-  const { cursorAPI } = useContext(CursorContext);
-  const { isBelowLg } = useContext(CommonContext);
+  const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
   const { smoothPush } = useSmoothPush();
 
-  const buttonProps = isBelowLg
+  const buttonProps = isScreenBelowLg
     ? {}
     : {
         onMouseEnter: () => cursorAPI.scaleUpAndAbsorbColor("bg-emerald-500"),

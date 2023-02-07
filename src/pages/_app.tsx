@@ -7,7 +7,7 @@ import "@/styles/globals.css";
 
 export default appWithTranslation(function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" enableSystem={true}>
+    <ThemeProvider attribute="class" enableSystem={false}>
       <CommonProvider>
         <CursorProvider>
           <Component {...pageProps} />

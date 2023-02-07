@@ -1,4 +1,2 @@
-theme 초기값이 production에서 잘 안먹히는듯. 확인할 것 ThemeProvider의 enableSystem도 확인
-window event listener 한 파일에 모으기
-locale 바꿀때 로딩
 project Felix, guplay, ipad, awesome shader 4개만 하기
+project Box 완성하고 cursor와 상호작용

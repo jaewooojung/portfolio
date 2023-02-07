@@ -34,7 +34,7 @@ export default function AboutSection({
           "lg:flex-row lg:justify-between lg:items-center"
         )}
       >
-        <div className="flex gap-2 font-semibold">
+        <div className={clsx("mb-2 flex gap-2 font-semibold", "lg:mb-0")}>
           <div className="w-5 h-5">
             <CircleStackIcon />
           </div>

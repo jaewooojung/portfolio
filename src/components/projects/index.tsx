@@ -12,12 +12,12 @@ export default function ProjectsComps() {
       <PageTitle title="Projects" />
       <div className={clsx("w-full flex flex-col gap-4", "lg:flex-row")}>
         <div className={clsx("w-full flex flex-col gap-4", "lg:gap-2")}>
-          {projectArr.slice(0, 3).map((project) => (
+          {projectArr.slice(0, 2).map((project) => (
             <ProjectsBox key={project.title} project={project} />
           ))}
         </div>
         <div className={clsx("w-full flex flex-col gap-4", "lg:gap-2")}>
-          {projectArr.slice(3).map((project) => (
+          {projectArr.slice(2).map((project) => (
             <ProjectsBox key={project.title} project={project} />
           ))}
         </div>

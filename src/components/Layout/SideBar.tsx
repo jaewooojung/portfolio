@@ -63,9 +63,8 @@ function AboveLgSideBar({ liProps }: { liProps: any }) {
 }
 
 export default function SideBar() {
-  const { cursorAPI } = useContext(CursorContext);
-  const { isBelowLg } = useContext(CommonContext);
-  const liProps = isBelowLg
+  const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
+  const liProps = isScreenBelowLg
     ? {}
     : {
         onMouseEnter: () => cursorAPI.absorbColorToBg("bg-emerald-500"),
