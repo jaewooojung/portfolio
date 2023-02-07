@@ -1,6 +1,7 @@
+import { ElementRefContext } from "@/context/elementRef";
 import useCommonContext from "@/utils/hooks/useCommonConrtext";
-import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import clsx from "clsx";
+import { useContext } from "react";
 
 const FacebookIcon = () => (
   <a
@@ -62,13 +63,13 @@ function AboveLgSideBar({ liProps }: { liProps: any }) {
 }
 
 export default function SideBar() {
-  const { absorbColorToBg, resetBg } = useCursorRef();
+  const { cursorAPI } = useContext(ElementRefContext);
   const { isBelowLg } = useCommonContext();
   const liProps = isBelowLg
     ? {}
     : {
-        onMouseEnter: () => absorbColorToBg("bg-emerald-500"),
-        onMouseLeave: resetBg,
+        onMouseEnter: () => cursorAPI.absorbColorToBg("bg-emerald-500"),
+        onMouseLeave: cursorAPI.resetBg,
       };
   return (
     <>

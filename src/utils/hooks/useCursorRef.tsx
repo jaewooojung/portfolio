@@ -15,6 +15,7 @@ const clearBgProperties = (element: HTMLDivElement) => {
 
 export function useCursorRef() {
   const { cursorRef } = useContext(ElementRefContext);
+
   const scaleUpBorder = useCallback(() => {
     if (cursorRef.current) {
       const cursorBorder = cursorRef.current.firstChild as HTMLDivElement;

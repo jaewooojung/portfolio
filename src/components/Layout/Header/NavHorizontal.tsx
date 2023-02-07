@@ -1,30 +1,30 @@
-import { useCursorRef } from "@/utils/hooks/useCursorRef";
+import { ElementRefContext } from "@/context/elementRef";
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import LocaleButton from "./LocaleButton";
 import Logo from "./Logo";
 
 export default function NavHorizontal({ tabs }: { tabs: Array<string> }) {
   const [mouseEntered, setMouseEntered] = useState("");
-  const { scaleUpBorder, scaleDownBorder } = useCursorRef();
+  const { cursorAPI } = useContext(ElementRefContext);
   const { smoothRoute } = useSmoothRoute();
   const router = useRouter();
 
   const handleMouseEnter = useCallback(
     (route: string) => {
       setMouseEntered(route);
-      scaleUpBorder();
+      cursorAPI.scaleUpBorder();
     },
-    [scaleUpBorder]
+    [cursorAPI]
   );
 
   const handleMouseLeave = useCallback(() => {
     setMouseEntered("none");
-    scaleDownBorder();
-  }, [scaleDownBorder]);
+    cursorAPI.scaleDownBorder();
+  }, [cursorAPI]);
 
   return (
     <nav

@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import useCommonContext from "@/utils/hooks/useCommonConrtext";
-import { useCursorRef } from "@/utils/hooks/useCursorRef";
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
+import { useContext } from "react";
+import { ElementRefContext } from "@/context/elementRef";
 
 const ArrowRightIcon = () => (
   <svg
@@ -21,15 +22,15 @@ const ArrowRightIcon = () => (
 );
 
 export default function LinkButton({ title, path }: { title: string; path: string }) {
-  const { scaleUpAndAbsorbColor, scaleDownAndResetBg } = useCursorRef();
+  const { cursorAPI } = useContext(ElementRefContext);
   const { smoothRoute } = useSmoothRoute();
   const { isBelowLg } = useCommonContext();
 
   const buttonProps = isBelowLg
     ? {}
     : {
-        onMouseEnter: () => scaleUpAndAbsorbColor("bg-emerald-500"),
-        onMouseLeave: scaleDownAndResetBg,
+        onMouseEnter: () => cursorAPI.scaleUpAndAbsorbColor("bg-emerald-500"),
+        onMouseLeave: cursorAPI.scaleDownAndResetBg,
       };
 
   return (

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useCursorRef } from "@/utils/hooks/useCursorRef";
+import React, { useContext, useEffect, useState } from "react";
 import clsx from "clsx";
 import useCommonContext from "@/utils/hooks/useCommonConrtext";
 import { useTheme } from "next-themes";
+import { ElementRefContext } from "@/context/elementRef";
 
 export const MoonIcon = () => (
   <svg
@@ -39,7 +39,7 @@ export const SunIcon = () => (
 );
 
 export default React.memo(function DarkmodeToggleButton() {
-  const { absorbColorToBg, resetBg } = useCursorRef();
+  const { cursorAPI } = useContext(ElementRefContext);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const { isBelowLg } = useCommonContext();
@@ -59,8 +59,8 @@ export default React.memo(function DarkmodeToggleButton() {
   const divProps = isBelowLg
     ? {}
     : {
-        onMouseEnter: () => absorbColorToBg("bg-gray-300"),
-        onMouseLeave: resetBg,
+        onMouseEnter: () => cursorAPI.absorbColorToBg("bg-gray-300"),
+        onMouseLeave: cursorAPI.resetBg,
       };
 
   return (
