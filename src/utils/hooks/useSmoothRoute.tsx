@@ -1,12 +1,10 @@
 import { useRouter } from "next/router";
 import { useCallback } from "react";
-import { useCursorRef } from "./useCursorRef";
 import useLayoutRef from "./useLayoutRef";
 import { LAYOUT_FADE_DURATION } from "../../constant";
 
 export default function useSmoothRoute() {
   const router = useRouter();
-  const { cursorRef } = useCursorRef();
   const { layoutRef } = useLayoutRef();
 
   const smoothRoute = useCallback(
@@ -14,7 +12,7 @@ export default function useSmoothRoute() {
       if (router.pathname === value) {
         return;
       }
-      if (layoutRef.current && cursorRef.current) {
+      if (layoutRef.current) {
         layoutRef.current.classList.replace("opacity-100", "opacity-0");
         Promise.all([
           router.prefetch(value, value, { locale: router.locale }),
@@ -33,7 +31,7 @@ export default function useSmoothRoute() {
         });
       }
     },
-    [cursorRef, layoutRef, router]
+    [layoutRef, router]
   );
 
   return { smoothRoute };

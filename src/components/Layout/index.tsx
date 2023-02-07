@@ -19,6 +19,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setMounted(true);
   }, [router]);
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
       <Head>
@@ -29,8 +33,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Background />
       <div
         ref={layoutRef}
+        style={{
+          transitionDuration: `${LAYOUT_FADE_DURATION}ms`,
+        }}
         className={clsx(
-          `px-4 text-zinc-800 transition-opacity duration-${LAYOUT_FADE_DURATION} max-w-[1920px] min-h-screen`,
+          `px-4 text-zinc-800 transition-opacity max-w-[1920px] min-h-screen`,
           "sm:px-10 lg:px-28 xl:px-32 2xl:px-60",
           "dark:text-zinc-400",
           {
@@ -42,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Cursor />
         <SideBar />
         <LayoutHeader />
-        <main className={clsx("relative pt-8 pb-14", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-10 lg:pb-0")}>{children}</main>
+        <main className={clsx("relative pt-8 pb-14", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-10 lg:pb-16")}>{children}</main>
         <LayoutFooter />
       </div>
     </>

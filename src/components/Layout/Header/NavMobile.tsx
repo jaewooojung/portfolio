@@ -1,7 +1,7 @@
 import useSmoothRoute from "@/utils/hooks/useSmoothRoute";
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import LocaleButton from "./LocaleButton";
 import Logo from "./Logo";
@@ -23,9 +23,9 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const { smoothRoute } = useSmoothRoute();
-  const toggleHamburgur = () => {
+  const toggleHamburgur = useCallback(() => {
     setOpen((prev) => !prev);
-  };
+  }, []);
   return (
     <nav className={clsx("relative h-full flex justify-between items-center", "lg:hidden")}>
       <Logo />
@@ -70,7 +70,7 @@ export default function NavMobile({ tabs }: { tabs: Array<string> }) {
           ))}
         </ul>
         <div className="w-full flex justify-center gap-20">
-          <LocaleButton />
+          <LocaleButton toggleHamburgur={toggleHamburgur} />
           <DarkmodeToggleButton />
         </div>
       </div>

@@ -10,8 +10,8 @@ export default function Background() {
     >
       <div
         className={clsx(
-          "absolute left-0 w-full bottom-1/3 -translate-x-1/2 animate-slide-right-infinite",
-          "lg:bottom-0"
+          "hidden absolute left-0 w-full bottom-0 -translate-x-1/2 animate-slide-right-infinite",
+          "lg:block"
         )}
       >
         <span className="text-9xl tracking-widest font-mono font-extrabold">JAEWOO JUNG</span>

@@ -19,7 +19,7 @@ export const EarthIcon = () => (
   </svg>
 );
 
-export default React.memo(function LocaleButton() {
+export default React.memo(function LocaleButton({ toggleHamburgur }: { toggleHamburgur?: () => void }) {
   const router = useRouter();
 
   const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
@@ -34,6 +34,7 @@ export default React.memo(function LocaleButton() {
         locale: localeTo,
       }
     );
+    toggleHamburgur && toggleHamburgur();
   };
 
   return (

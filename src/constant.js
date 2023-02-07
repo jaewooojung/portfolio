@@ -1,1 +1,1 @@
-export const LAYOUT_FADE_DURATION = 150;
+export const LAYOUT_FADE_DURATION = 300;
