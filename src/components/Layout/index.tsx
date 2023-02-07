@@ -13,15 +13,11 @@ import { LAYOUT_FADE_DURATION } from "../../constant";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { layoutRef } = useLayoutRef();
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
+    router.events.on("routeChangeStart", (e) => {
+      console.log(e, 1);
+    });
   }, [router]);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <>
@@ -37,13 +33,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           transitionDuration: `${LAYOUT_FADE_DURATION}ms`,
         }}
         className={clsx(
-          `px-4 text-zinc-800 transition-opacity max-w-[1920px] min-h-screen`,
+          `px-4 text-zinc-800 transition-opacity max-w-[1920px] min-h-screen opacity-100`,
           "sm:px-10 lg:px-28 xl:px-32 2xl:px-60",
-          "dark:text-zinc-400",
-          {
-            "opacity-100": mounted,
-            "opacity-0": !mounted,
-          }
+          "dark:text-zinc-400"
         )}
       >
         <Cursor />

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import useLayoutRef from "./useLayoutRef";
 import { LAYOUT_FADE_DURATION } from "../../constant";
 
