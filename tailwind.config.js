@@ -12,9 +12,14 @@ module.exports = {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(100%)" },
         },
+        fadeOut: {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
       },
       animation: {
         "slide-right-infinite": "20s slideRightInfinite linear infinite",
+        "modal-fade-out": "3s fadeOut ease-in forwards",
       },
     },
   },

@@ -1,6 +1,7 @@
 import clsx from "clsx";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const EarthIcon = () => (
   <svg
@@ -19,27 +20,33 @@ export const EarthIcon = () => (
   </svg>
 );
 
-export default React.memo(function LocaleButton({ toggleHamburgur }: { toggleHamburgur?: () => void }) {
-  console.log("LocaleButton");
+export default React.memo(function LocaleButton() {
   const router = useRouter();
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation("common");
   const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 
   const handleClick = () => {
-    router.replace(
-      {
-        pathname: router.asPath,
-      },
-      router.asPath,
-      {
-        locale: localeTo,
-      }
-    );
-    toggleHamburgur && toggleHamburgur();
+    setModalOpen(false);
+    router
+      .replace(
+        {
+          pathname: router.asPath,
+        },
+        router.asPath,
+        {
+          locale: localeTo,
+        }
+      )
+      .then((e: any) => {
+        if (e) {
+          setModalOpen(true);
+        }
+      });
   };
 
   return (
-    <div className="flex items-center">
+    <div className="relative flex items-center">
       <div className="w-5 h-5">
         <EarthIcon />
       </div>
@@ -47,6 +54,12 @@ export default React.memo(function LocaleButton({ toggleHamburgur }: { toggleHam
       <div className={clsx("w-6 h-6 flex justify-center items-center text-sm underline underline-offset-4")}>
         <button onClick={handleClick}>{localeTo.toUpperCase()}</button>
       </div>
+      {modalOpen && (
+        <div className="absolute bottom-[105%] min-w-max border  p-1 rounded-md flex justify-end items-end animate-modal-fade-out">
+          <span className="text-sm">{t(`change-to-${router.locale}`)}</span>
+          <div className="absolute top-full left-1 border-t-4  border-l-4 border-l-transparent border-r-4 border-r-transparent"></div>
+        </div>
+      )}
     </div>
   );
 });

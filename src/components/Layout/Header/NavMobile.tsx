@@ -72,7 +72,7 @@ export default function NavMobile(props: NavProps) {
           ))}
         </ul>
         <div className="w-full flex justify-center gap-20">
-          <LocaleButton toggleHamburgur={toggleHamburgur} />
+          <LocaleButton />
           <DarkmodeToggleButton />
         </div>
       </div>
