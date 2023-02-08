@@ -8,7 +8,7 @@ module.exports = {
         background: "rgb(255,253,252)",
       },
       keyframes: {
-        slideRightInfinite: {
+        slideRight: {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(100%)" },
         },
@@ -16,10 +16,25 @@ module.exports = {
           "0%": { opacity: 1 },
           "100%": { opacity: 0 },
         },
+        slideUpFadeIn: {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(20px)",
+          },
+          "80%": {
+            opacity: 1,
+            // transform:
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
-        "slide-right-infinite": "20s slideRightInfinite linear infinite",
+        "slide-right-infinite": "20s slideRight linear infinite",
         "modal-fade-out": "3s fadeOut ease-in forwards",
+        "slide-up-fade-in": ".5s slideUpFadeIn ease-out forwards",
       },
     },
   },

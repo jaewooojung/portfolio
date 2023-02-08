@@ -1,4 +1,4 @@
-import { createContext, createRef, RefObject, useEffect, useState } from "react";
+import { createContext, createRef, RefObject } from "react";
 
 interface ICommon {
   layoutRef: RefObject<HTMLDivElement>;

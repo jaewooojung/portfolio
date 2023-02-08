@@ -4,7 +4,7 @@ export default function Background() {
   return (
     <div
       className={clsx(
-        "fixed inset-0 text-emerald-50 bg-background select-none",
+        "-z-50 fixed inset-0 text-emerald-50 bg-background select-none",
         "dark:bg-zinc-900 dark:text-emerald-900 dark:text-opacity-20"
       )}
     >

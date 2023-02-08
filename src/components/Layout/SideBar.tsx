@@ -31,7 +31,7 @@ const GithubIcon = () => (
 
 function BelowLgBottomBar({ liProps }: { liProps: any }) {
   return (
-    <aside className={clsx("fixed inset-0 z-10 top-auto h-14 bg-background", "lg:hidden", "dark:bg-zinc-900")}>
+    <aside className={clsx("z-30 fixed inset-0 top-auto h-14 bg-background", "lg:hidden", "dark:bg-zinc-900")}>
       <ul className="w-full h-full flex justify-center items-center gap-10">
         <li {...liProps}>
           <GithubIcon />
@@ -46,7 +46,7 @@ function BelowLgBottomBar({ liProps }: { liProps: any }) {
 
 function AboveLgSideBar({ liProps }: { liProps: any }) {
   return (
-    <aside className={clsx("hidden fixed bottom-0", "lg:block lg:left-14 xl:left-16 2xl:left-30")}>
+    <aside className={clsx("z-30 hidden fixed bottom-0", "lg:block lg:left-14 xl:left-16 2xl:left-30")}>
       <div className="flex flex-col items-center">
         <ul className="mb-10 flex flex-col items-center gap-6">
           <li {...liProps}>

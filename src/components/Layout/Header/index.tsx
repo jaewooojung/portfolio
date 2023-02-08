@@ -24,7 +24,7 @@ export default function LayoutHeader() {
   }, []);
 
   return (
-    <header className={clsx("relative w-full h-20", "sm:h-28 lg:h-48 xl:h-52 2xl:h-56")}>
+    <header className={clsx("z-40 relative w-full h-20", "sm:h-28 lg:h-48 xl:h-52 2xl:h-56")}>
       <NavHorizontal tabs={tabs} router={router} smoothPush={smoothPush} />
       <NavMobile tabs={tabs} router={router} smoothPush={smoothPush} />
     </header>
