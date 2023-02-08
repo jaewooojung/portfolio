@@ -6,7 +6,13 @@ import { useState } from "react";
 import { MyProject } from "./projects";
 import Tag from "./Tag";
 
-export default React.memo(function ProjectsBox({ project }: { project: MyProject }) {
+export default React.memo(function ProjectsBox({
+  project,
+  handleClickProject,
+}: {
+  project: MyProject;
+  handleClickProject: (project: MyProject) => void;
+}) {
   const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
   const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
   const [loading, setLoading] = useState(true);
@@ -35,9 +41,7 @@ export default React.memo(function ProjectsBox({ project }: { project: MyProject
   return (
     <div
       {...pointerEvtProps}
-      onClick={() => {
-        console.log("click box");
-      }}
+      onClick={() => handleClickProject(project)}
       className="relative rounded-xl overflow-hidden cursor-pointer"
       style={{ height: `${height}px` }}
     >
