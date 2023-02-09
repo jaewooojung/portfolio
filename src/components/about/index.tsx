@@ -7,7 +7,7 @@ import AboutSection from "./Section";
 export default function AboutComps() {
   const { t } = useTranslation("about");
   return (
-    <div className="z-30 relative">
+    <div className="relative">
       <PageTitle title={t("title")} />
       <AboutSection
         title={t("s1Title")}

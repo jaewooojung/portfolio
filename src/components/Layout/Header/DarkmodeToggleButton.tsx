@@ -38,7 +38,6 @@ export const SunIcon = () => (
 );
 
 export default React.memo(function DarkmodeToggleButton() {
-  const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -50,19 +49,12 @@ export default React.memo(function DarkmodeToggleButton() {
     }
   };
 
-  const divProps = isScreenBelowLg
-    ? {}
-    : {
-        onMouseEnter: () => cursorAPI.absorbColorToBg("bg-gray-300"),
-        onMouseLeave: cursorAPI.resetBg,
-      };
-
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <div className={clsx("w-5 h-5 lg:hover:text-background")} {...divProps}>
+    <div className={clsx("w-5 h-5")}>
       {mounted && <button onClick={toggleTheme}>{theme === "dark" ? <SunIcon /> : <MoonIcon />}</button>}
     </div>
   );

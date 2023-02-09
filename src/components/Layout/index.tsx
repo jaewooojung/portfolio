@@ -6,11 +6,28 @@ import LayoutHeader from "./Header";
 import Background from "./Background";
 import SideBar from "./SideBar";
 import { LAYOUT_FADE_DURATION } from "../../constant";
-import { useContext } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { CommonContext } from "@/context/common";
+import NavMobile from "./NavMobile";
+import { activateBodyScroll, deActivateBodyScroll } from "../../utils/dom";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { layoutRef } = useContext(CommonContext);
+  const [navOpen, setNavOpen] = useState(false);
+
+  const openNav = useCallback(() => {
+    setNavOpen(true);
+    deActivateBodyScroll();
+  }, []);
+
+  const closeNav = useCallback(() => {
+    setNavOpen(false);
+    activateBodyScroll();
+  }, []);
+
+  useEffect(() => {
+    activateBodyScroll();
+  }, []);
 
   return (
     <>
@@ -26,21 +43,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           transitionDuration: `${LAYOUT_FADE_DURATION}ms`,
         }}
         className={clsx(
-          `px-4 text-zinc-800 transition-opacity max-w-[1920px] min-h-screen opacity-100`,
+          "px-4 text-zinc-800 transition-opacity max-w-[1920px] min-h-screen opacity-100",
           "sm:px-10 lg:px-28 xl:px-32 2xl:px-60",
           "dark:text-zinc-400"
         )}
       >
-        {/* z30 */}
-        <Cursor />
-        {/* z40 */}
-        <LayoutHeader />
-        {/* z30 / projects: z20 */}
+        <LayoutHeader openNav={openNav} />
         <main className={clsx("relative pt-8 pb-14", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-10 lg:pb-16")}>{children}</main>
-        {/* z30 */}
         <LayoutFooter />
-        {/* z30 */}
         <SideBar />
+        <NavMobile navOpen={navOpen} closeNav={closeNav} />
+        <Cursor />
       </div>
     </>
   );

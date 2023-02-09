@@ -68,6 +68,7 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
         clearBgProperties(cursorDot);
         cursorDot.classList.remove("scale-[0.1]");
         cursorDot.classList.add("scale-100", twColor);
+        cursorRef.current.classList.add("-z-40");
       }
     },
     [cursorRef]
@@ -78,6 +79,7 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
       clearBgProperties(cursorDot);
       cursorDot.classList.remove("scale-100");
       cursorDot.classList.add("scale-[0.1]", "bg-gray-400");
+      cursorRef.current.classList.remove("-z-40");
     }
   }, [cursorRef]);
   const scaleUpAndAbsorbColor = useCallback(
@@ -87,6 +89,7 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
         clearBgProperties(cursorDot);
         cursorDot.classList.remove("scale-[0.1]");
         cursorDot.classList.add("scale-150", twColor);
+        cursorRef.current.classList.add("-z-40");
       }
     },
     [cursorRef]
@@ -97,6 +100,7 @@ export const CursorProvider = ({ children }: { children: React.ReactNode }) => {
       clearBgProperties(cursorDot);
       cursorDot.classList.remove("scale-150");
       cursorDot.classList.add("scale-[0.1]", "bg-gray-400");
+      cursorRef.current.classList.remove("-z-40");
     }
   }, [cursorRef]);
 

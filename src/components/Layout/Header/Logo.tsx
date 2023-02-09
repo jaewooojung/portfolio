@@ -17,7 +17,7 @@ export default React.memo(function Logo() {
     <div>
       <a
         onClick={() => smoothPush("/")}
-        className={clsx("text-3xl font-extrabold text-emerald-500", "sm:text-5xl lg:hover:text-background")}
+        className={clsx("text-3xl font-extrabold text-emerald-500 lg:hover:text-background", "sm:text-5xl")}
         {...buttonProps}
       >
         JW

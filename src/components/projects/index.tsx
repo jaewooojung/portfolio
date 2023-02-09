@@ -22,7 +22,7 @@ export default function ProjectsComps() {
   }, []);
 
   return (
-    <div className={clsx("z-20 relative sm:px-20 md:px-30 lg:px-0")}>
+    <div className={clsx("relative sm:px-20 md:px-30 lg:px-0")}>
       <PageTitle title="Projects" />
       <div className={clsx("w-full flex flex-col gap-8 animate-slide-up-fade-in", "lg:flex-row")}>
         <div className={clsx("w-full flex flex-col gap-8", "lg:gap-6")}>

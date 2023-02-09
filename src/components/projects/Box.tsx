@@ -13,7 +13,7 @@ export default React.memo(function ProjectsBox({
   project: MyProject;
   handleClickProject: (project: MyProject) => void;
 }) {
-  const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
+  const { height, title, summary, thumbnail, technologies } = project;
   const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
   const [loading, setLoading] = useState(true);
   const [hovered, setHovered] = useState(false);
@@ -51,7 +51,7 @@ export default React.memo(function ProjectsBox({
             alt={`${title}`}
             src={thumbnail}
             fill
-            className={clsx("object-cover", {
+            className={clsx("object-cover object-left", {
               "animate-pulse": loading,
             })}
             sizes="(min-width: 1024px) 50vw,
@@ -62,7 +62,7 @@ export default React.memo(function ProjectsBox({
           />
         ) : (
           <div className="w-full h-full">
-            <video src={thumbnail} className="h-full object-cover" autoPlay muted />
+            <video src={thumbnail} className="w-full h-full object-cover" autoPlay muted loop />
           </div>
         )}
 

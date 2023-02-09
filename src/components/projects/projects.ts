@@ -17,7 +17,7 @@ export function getProjects(t: TFunction): Array<MyProject> {
       height: 340,
       title: "Felix",
       summary: "Felix summary",
-      thumbnail: "/images/thumbnail-felix.gif",
+      thumbnail: "/videos/thumbnail-felix.mp4",
       description: "Felix description",
       technologies: ["React", "firebase"],
       url: "https://google.com",
