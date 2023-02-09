@@ -3,7 +3,24 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-export const EarthIcon = () => (
+const ArrowDownIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-full h-full"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+);
+
+const EarthIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -23,10 +40,12 @@ export const EarthIcon = () => (
 export default React.memo(function LocaleButton() {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation("common");
   const localeTo = router.locales!.find((locale) => locale !== router.locale) as string;
 
   const handleClick = () => {
+    setLoading(true);
     setModalOpen(false);
     router
       .replace(
@@ -38,18 +57,27 @@ export default React.memo(function LocaleButton() {
           locale: localeTo,
         }
       )
-      .then((e: any) => {
-        if (e) {
+      .then((result: boolean) => {
+        if (result) {
+          setLoading(false);
           setModalOpen(true);
+        } else {
+          throw new Error("Network failed");
         }
       });
   };
 
   return (
     <div className="relative flex items-center">
-      <div className="w-5 h-5">
-        <EarthIcon />
-      </div>
+      {loading ? (
+        <div className="w-5 h-5 animate-bounce">
+          <ArrowDownIcon />
+        </div>
+      ) : (
+        <div className="w-5 h-5">
+          <EarthIcon />
+        </div>
+      )}
       :
       <div className={clsx("w-6 h-6 flex justify-center items-center text-sm underline underline-offset-4")}>
         <button onClick={handleClick}>{localeTo.toUpperCase()}</button>

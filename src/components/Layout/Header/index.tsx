@@ -61,7 +61,7 @@ export default function LayoutHeader({ openNav }: { openNav: () => void }) {
           </ul>
           <div className="h-full flex items-center gap-6">
             <LocaleButton />
-            <DarkmodeToggleButton />
+            <DarkmodeToggleButton fromMobileNav={false} />
           </div>
         </div>
         <div className={clsx("h-full flex items-center", "lg:hidden")}>
