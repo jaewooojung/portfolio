@@ -30,11 +30,20 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
+        slideLeft: {
+          "0%": {
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
       },
       animation: {
         "slide-right-infinite": "20s slideRight linear infinite",
         "modal-fade-out": "3s fadeOut ease-in forwards",
         "slide-up-fade-in": ".5s slideUpFadeIn ease-out forwards",
+        "project-detail-slide-left": ".5s slideLeft forwards",
       },
     },
   },

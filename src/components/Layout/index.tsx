@@ -48,10 +48,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           "dark:text-zinc-400"
         )}
       >
+        <SideBar />
         <LayoutHeader openNav={openNav} />
         <main className={clsx("relative pt-8 pb-14", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-10 lg:pb-16")}>{children}</main>
         <LayoutFooter />
-        <SideBar />
         <NavMobile navOpen={navOpen} closeNav={closeNav} />
         <Cursor />
       </div>

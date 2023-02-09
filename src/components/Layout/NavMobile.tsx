@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import DarkmodeToggleButton from "./Header/DarkmodeToggleButton";
 import LocaleButton from "./Header/LocaleButton";
 import { tabs } from "./Header";
+import { GithubLink, FacebookLink } from "./SideBar";
 
 const CloseIcon = () => (
   <svg
@@ -25,7 +26,7 @@ export default function NavMobile({ navOpen, closeNav }: { navOpen: boolean; clo
   return (
     <div
       className={clsx(
-        "fixed inset-0 px-4 bg-background transition-transform translate-x-full",
+        "fixed inset-0 px-4 bg-background transition-transform translate-x-full overflow-auto",
         "sm:px-10 lg:hidden",
         "dark:bg-zinc-900",
         {
@@ -59,9 +60,23 @@ export default function NavMobile({ navOpen, closeNav }: { navOpen: boolean; clo
             </li>
           ))}
         </ul>
-        <div className="w-full flex justify-center gap-20">
-          <LocaleButton />
-          <DarkmodeToggleButton />
+        <div className="pb-10 grid grid-rows-2 grid-cols-2 gap-x-4 gap-y-10 items-center">
+          <div className="justify-self-end">
+            <LocaleButton />
+          </div>
+          <div className="justify-self-start">
+            <DarkmodeToggleButton />
+          </div>
+          <div className="justify-self-end">
+            <div className="w-6 h-6">
+              <GithubLink twColor="fill-zinc-800 dark:fill-zinc-400" />
+            </div>
+          </div>
+          <div className="justify-self-start">
+            <div className="w-7 h-7">
+              <FacebookLink twColor="fill-zinc-800 dark:fill-zinc-400" />
+            </div>
+          </div>
         </div>
       </nav>
     </div>

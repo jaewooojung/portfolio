@@ -1,5 +1,6 @@
 import { CommonContext } from "@/context/common";
 import { CursorContext } from "@/context/cursor";
+import { activateBodyScroll, deActivateBodyScroll } from "@/utils/dom";
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
 import { useCallback, useContext, useMemo, useState } from "react";
@@ -15,10 +16,12 @@ export default function ProjectsComps() {
 
   const handleClickProject = useCallback((project: MyProject) => {
     setSelected(project);
+    deActivateBodyScroll();
   }, []);
 
   const closeProjectDetail = useCallback(() => {
     setSelected(null);
+    activateBodyScroll();
   }, []);
 
   return (

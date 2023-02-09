@@ -35,7 +35,7 @@ export default function LayoutHeader({ openNav }: { openNav: () => void }) {
   }, []);
 
   return (
-    <header className={clsx("relative w-full h-20", "sm:h-28 lg:h-48 xl:h-52 2xl:h-56")}>
+    <header className={clsx("relative w-full h-20 text-zinc-500", "sm:h-28 lg:h-48 xl:h-52 2xl:h-56")}>
       <nav className={clsx("h-full flex justify-between items-center text-lg font-semibold")}>
         <Logo />
         <div className={clsx("hidden", "lg:flex lg:gap-24")}>

@@ -1,7 +1,18 @@
 {
-  "title": "Projects",
-  "aa": {
-    "bb": 1,
-    "cc": 2
+  "project1": {
+    "summary": "Clone coding of website in awwwards.com",
+    "description": "Website for Portfolio with fancy sliding animation of navigation. Attempt to make package called @jaewoo/react-carousel"
+  },
+  "project2": {
+    "summary": "Web-based puzzle game application",
+    "description": "Website for Portfolio. Keeping React's performance good in dynamic interaction with users. Implementation of number game (1 to 50) and card matching game"
+  },
+  "project3": {
+    "summary": "Clone coding of Dotpad(https://pad.dotincorp.com/)",
+    "description": "Website for Portfolio. Control of 2D Dom Element and 3D Three object. Implementation of data-driven-scrolling(movement of each element according to scroll position) 구현"
+  },
+  "project4": {
+    "summary": "Implementation of awesome 3D animations using glsl-based shader",
+    "description": "Website for Portfolio. Using custom shader to implement awesome 3D animations. Implementation of tree"
   }
 }

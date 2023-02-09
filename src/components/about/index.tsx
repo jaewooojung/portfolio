@@ -8,67 +8,67 @@ export default function AboutComps() {
   const { t } = useTranslation("about");
   return (
     <div className="relative">
-      <PageTitle title={t("title")} />
+      <PageTitle title="About me" />
       <AboutSection
-        title={t("s1Title")}
+        title={t("section1.title")}
         content={
           <ul>
-            <li>{t("s1Content1")}</li>
+            <li>{t("section1.description")}</li>
           </ul>
         }
       />
       <AboutSection
-        title={t("s2Title")}
-        linkIcon={<LinkButton title={t("s2ProjectLink")} path="/projects" />}
+        title={t("section2.title")}
+        linkIcon={<LinkButton title={t("section2.projectLink")} path="/projects" />}
         content={
           <ul className="flex flex-col gap-2">
             <li>
-              <div>{t("s2Li1Title")}</div>
-              <div>{t("s2Li1Content")}</div>
+              <div>{t("section2.li1.title")}</div>
+              <div>{t("section2.li1.description")}</div>
             </li>
             <li>
-              <div>{t("s2Li2Title")}</div>
-              <div>{t("s2Li2Content")}</div>
+              <div>{t("section2.li2.title")}</div>
+              <div>{t("section2.li2.description")}</div>
             </li>
             <li>
-              <div>{t("s2Li3Title")}</div>
-              <div>{t("s2Li3Content")}</div>
+              <div>{t("section2.li3.title")}</div>
+              <div>{t("section2.li3.description")}</div>
             </li>
             <li>
-              <div>{t("s2Li4Title")}</div>
-              <div>{t("s2Li4Content")}</div>
+              <div>{t("section2.li4.title")}</div>
+              <div>{t("section2.li4.description")}</div>
             </li>
             <li>
-              <div>{t("s2Li5Title")}</div>
-              <div>{t("s2Li5Content")}</div>
+              <div>{t("section2.li5.title")}</div>
+              <div>{t("section2.li5.description")}</div>
             </li>
           </ul>
         }
       />
-      <AboutSection title={t("s3Title")} content={<div>{t("s3Content")}</div>} />
+      <AboutSection title={t("section3.title")} content={<div>{t("section3.description")}</div>} />
       <AboutSection
-        title={t("s4Title")}
+        title={t("section4.title")}
         content={
           <ul className="flex flex-col gap-2">
             <li>
-              <div>{t("s4Li1Title")}</div>
-              <div>{t("s4Li2Content")}</div>
+              <div>{t("section4.li1.title")}</div>
+              <div>{t("section4.li1.description")}</div>
             </li>
             <li>
-              <div>{t("s4Li2Title")}</div>
-              <div>{t("s4Li2Content")}</div>
+              <div>{t("section4.li2.title")}</div>
+              <div>{t("section4.li2.description")}</div>
             </li>
             <li>
-              <div>{t("s4Li3Title")}</div>
-              <div>{t("s4Li3Content")}</div>
+              <div>{t("section4.li3.title")}</div>
+              <div>{t("section4.li3.description")}</div>
             </li>
             <li>
-              <div>{t("s4Li4Title")}</div>
-              <div>{t("s4Li4Content")}</div>
+              <div>{t("section4.li4.title")}</div>
+              <div>{t("section4.li4.description")}</div>
             </li>
             <li>
-              <div>{t("s4Li5Title")}</div>
-              <div>{t("s4Li5Content")}</div>
+              <div>{t("section4.li5.title")}</div>
+              <div>{t("section4.li5.description")}</div>
             </li>
           </ul>
         }

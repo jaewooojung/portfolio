@@ -42,7 +42,7 @@ export default React.memo(function ProjectsBox({
     <div
       {...pointerEvtProps}
       onClick={() => handleClickProject(project)}
-      className="relative rounded-xl overflow-hidden cursor-pointer"
+      className="relative max-w-screen-sm rounded-xl overflow-hidden cursor-pointer"
       style={{ height: `${height}px` }}
     >
       <div className="absolute inset-0">
@@ -56,8 +56,8 @@ export default React.memo(function ProjectsBox({
             })}
             sizes="(min-width: 1024px) 50vw,
                 100vw"
-            // placeholder="blur"
-            // blurDataURL={thumbnail}
+            placeholder="blur"
+            blurDataURL={thumbnail}
             onLoadingComplete={onLoadingComplete}
           />
         ) : (
@@ -85,7 +85,7 @@ export default React.memo(function ProjectsBox({
             <div className="mb-2">{summary}</div>
             <ul className="flex gap-2">
               {technologies.map((tech) => (
-                <Tag key={`title ${tech}`} tech={tech} />
+                <Tag key={`${title}-${tech}`} tech={tech} />
               ))}
             </ul>
           </div>

@@ -1,4 +1,18 @@
 {
-  // p1Summary: "Felix summary",
-  // p1Description: "Felix description",
+  "project1": {
+    "summary": "awwwards.com의 웹사이트 클론코딩",
+    "description": "포트폴리오용 웹사이트. 괜찮은 navigation의 sliding 애니메이션. @jaewoo/react-carousel 패키지 개발 시도"
+  },
+  "project2": {
+    "summary": "웹기반 퍼즐게임 어플리케이션",
+    "description": "포트폴리오용 웹사이트. 유저와의 Dynamic한 상호작용에서 React의 퍼포먼스 유지. 순발력게임(1to50)과 카드매칭게임 구현"
+  },
+  "project3": {
+    "summary": "클론코딩 - https://pad.dotincorp.com/",
+    "description": "포트폴리오용 웹사이트. 2D Dom Element와 3D Three object 제어 및 data-driven-scrolling(스크롤 위치에 따른 각 element의 움직임) 구현"
+  },
+  "project4": {
+    "summary": "glsl기반 Shader를 사용한 애니메이션 구현",
+    "description": "포트폴리오용 웹사이트. custom Shader를 사용하여 화려한 애니메이션들을 구현함. 현재까지 tree 구현"
+  }
 }
