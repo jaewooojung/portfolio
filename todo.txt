@@ -1,2 +1,3 @@
-project Felix, guplay, ipad, awesome shader 4개만 하기
-project Box 완성하고 cursor와 상호작용
+contact 완성
+project list와 detail에서 image 사용하는 것 중복되나 확인.
+about, project 문구 수정
