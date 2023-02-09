@@ -55,9 +55,9 @@ export default React.memo(function LocaleButton() {
         <button onClick={handleClick}>{localeTo.toUpperCase()}</button>
       </div>
       {modalOpen && (
-        <div className="absolute bottom-[105%] min-w-max border  p-1 rounded-md flex justify-end items-end animate-modal-fade-out">
+        <div className="absolute bottom-[105%] p-1 min-w-max flex justify-end items-end border rounded-md border-zinc-500 animate-modal-fade-out">
           <span className="text-sm">{t(`change-to-${router.locale}`)}</span>
-          <div className="absolute top-full left-1 border-t-4  border-l-4 border-l-transparent border-r-4 border-r-transparent"></div>
+          <div className="absolute top-full left-1 border-t-4 border-l-4 border-l-transparent border-r-4 border-r-transparent border-zinc-500"></div>
         </div>
       )}
     </div>

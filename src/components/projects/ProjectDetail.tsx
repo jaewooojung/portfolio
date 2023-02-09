@@ -8,7 +8,7 @@ const ChevronLeftIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    strokeWidth={5}
+    strokeWidth={4}
     stroke="currentColor"
     className="w-full h-full"
   >
@@ -44,7 +44,7 @@ export default function ProjectDetail({
           <div className="mb-8 pb-4 border-b-2 border-b-zinc-500">
             <button
               onClick={closeProjectDetail}
-              className="p-1 w-6 h-6 border-[3px] rounded-full border-zinc-500 text-zinc-500"
+              className="p-1 w-6 h-6 border-2 rounded-full border-zinc-500 text-zinc-500"
             >
               <ChevronLeftIcon />
             </button>

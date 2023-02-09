@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ContactComps from "@/components/contact";
 
 export default function Contact() {
   return (
@@ -8,7 +9,7 @@ export default function Contact() {
       <Head>
         <title>Contact me | Jaewoo Jung</title>
       </Head>
-      contact
+      <ContactComps />
     </Layout>
   );
 }
@@ -16,7 +17,7 @@ export default function Contact() {
 export const getStaticProps = async ({ locale }: { locale: string }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home", "common"])),
+      ...(await serverSideTranslations(locale, ["contact", "common"])),
     },
   };
 };

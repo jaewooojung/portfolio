@@ -1,3 +1,13 @@
 contact 완성
+스크롤 있는페이지, 없는페이지 이동간에 화면움직임 방지하기. overlay하던가 디자인 직접하던가.
 project list와 detail에서 image 사용하는 것 중복되나 확인.
 about, project 문구 수정
+language 바꿀때 로딩화면
+퍼포먼스 리팩토링
+완성
+
+완성후에
+awesome shaders tree 퍼포먼스 및 가독성 향상
+felix, guplay 대충 손보기
+
+2/13~ 이력서 넣기 시작 

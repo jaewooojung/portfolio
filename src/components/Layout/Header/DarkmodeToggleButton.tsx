@@ -37,7 +37,7 @@ export const SunIcon = () => (
   </svg>
 );
 
-export default React.memo(function DarkmodeToggleButton() {
+export default React.memo(function DarkmodeToggleButton({ fromMobileNav }: { fromMobileNav: boolean }) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -53,9 +53,22 @@ export default React.memo(function DarkmodeToggleButton() {
     setMounted(true);
   }, []);
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <div className={clsx("w-5 h-5")}>
-      {mounted && <button onClick={toggleTheme}>{theme === "dark" ? <SunIcon /> : <MoonIcon />}</button>}
+    <div className="flex items-center">
+      <div className={clsx("mr-1 w-5 h-5")}>
+        <button disabled={fromMobileNav} onClick={toggleTheme}>
+          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+        </button>
+      </div>
+      {fromMobileNav && (
+        <button disabled={!fromMobileNav} onClick={toggleTheme} className="text-sm underline underline-offset-4">
+          {theme === "dark" ? "to light" : "to dark"}
+        </button>
+      )}
     </div>
   );
 });

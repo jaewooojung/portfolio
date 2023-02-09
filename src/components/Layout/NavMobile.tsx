@@ -65,7 +65,7 @@ export default function NavMobile({ navOpen, closeNav }: { navOpen: boolean; clo
             <LocaleButton />
           </div>
           <div className="justify-self-start">
-            <DarkmodeToggleButton />
+            <DarkmodeToggleButton fromMobileNav={true} />
           </div>
           <div className="justify-self-end">
             <div className="w-6 h-6">

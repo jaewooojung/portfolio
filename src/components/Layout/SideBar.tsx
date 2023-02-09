@@ -46,7 +46,7 @@ export default function SideBar() {
             <FacebookLink twColor="fill-emerald-500" />
           </li>
         </ul>
-        <div className="w-1 h-32 bg-zinc-200 dark:bg-zinc-400"></div>
+        <div className="w-1 h-32 bg-zinc-300 dark:bg-zinc-700"></div>
       </div>
     </aside>
   );
