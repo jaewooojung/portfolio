@@ -53,7 +53,7 @@ export default function ProjectDetail({ project }: { project: MyProject }) {
               <Image
                 alt={`${title}`}
                 src={thumbnail}
-                width={window.innerWidth / 2}
+                width={window.innerWidth}
                 height={window.innerHeight / 2}
                 className={clsx("object-cover object-left-top")}
                 sizes="(min-width: 1024px) 50vw,
