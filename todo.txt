@@ -1,1 +1,2 @@
 cursor hover animation - zindex 말고 mix blender mode로 해결해보기
+ProjectDetail에서 mobile back button 제어
