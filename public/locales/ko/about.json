@@ -7,24 +7,30 @@
     "title": "스킬",
     "projectLink": "프로젝트 보기",
     "li1": {
-      "title": "- HTML, CSS (중)",
-      "description": "웹 어플리케이션을 만들기 위해 필요한 기본적인 지식을 가지고 있습니다. DOM구조를 설계하거나 Element property를 활용하는데에 익숙하며 간단한 웹사이트를 라이브러리의 도움없이 제작할 수 있습니다."
+      "title": "HTML, CSS (중)",
+      "description1": "웹 어플리케이션을 만들기 위해 필요한 기본적인 지식을 가지고 있습니다. DOM구조를 설계하거나 Element property를 활용하는데에 익숙하며 ",
+      "projectLink": "간단한 웹사이트",
+      "description2": "를 라이브러리의 도움없이 제작할 수 있습니다."
     },
     "li2": {
-      "title": "- Javascript (중)",
-      "description": "변수, 자료구조, 조건문, 반복문, 모듈, 컨텍스트 등 기본개념을 자유롭게 활용할 수 있으며 간단한 퍼즐게임을 위한 알고리즘을 설계하고 게임을 구현할 수 있습니다."
+      "title": "Javascript (중)",
+      "description1": "변수, 자료구조, 조건문, 반복문, 모듈, 컨텍스트 등 기본개념을 자유롭게 활용할 수 있으며 간단한 퍼즐게임을 위한 알고리즘을 설계하고 ",
+      "projectLink": "게임을 구현",
+      "description2": "할 수 있습니다."
     },
     "li3": {
-      "title": "- Reactjs (중)",
+      "title": "Reactjs (중)",
       "description": "요구사항에 맞게 컴포넌트 트리를 효율적으로 설계할 수 있습니다. state의 사용과 component life cycle의 개념에 익숙하며 확장성과 가독성, 퍼포먼스의 향상에 관심이 많습니다."
     },
     "li4": {
-      "title": "- Nextjs (중)",
+      "title": "Nextjs (중)",
       "description": "react component의 작업을 server side와 client side로 분류하여 rendering 할 수 있으며, page(route)별로 static HTML serve와 server side rendering을 적절하게 활용할 수 있습니다."
     },
     "li5": {
-      "title": "- Threejs (하)",
-      "description": "threejs를 활용하여 object를 제어할 수 있으며, shader를 통해 아름다운 3D 화면을 만드는데에 큰 관심을 가지고 있습니다."
+      "title": "Threejs (하)",
+      "description1": "threejs를 활용하여 object를 제어할 수 있으며, shader를 통해 ",
+      "projectLink": "아름다운 3D 화면",
+      "description2": "을 만드는데에 큰 관심을 가지고 있습니다."
     }
   },
   "section3": {

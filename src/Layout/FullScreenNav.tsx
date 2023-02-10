@@ -1,9 +1,9 @@
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import DarkmodeToggleButton from "./Header/DarkmodeToggleButton";
-import LocaleButton from "./Header/LocaleButton";
-import { tabs } from "./Header";
+import DarkmodeToggleButton from "./LayoutHeader/DarkmodeToggleButton";
+import LocaleButton from "./LayoutHeader/LocaleButton";
+import { tabs } from "./LayoutHeader";
 import { GithubLink, FacebookLink } from "./SideBar";
 
 const CloseIcon = () => (
@@ -19,7 +19,7 @@ const CloseIcon = () => (
   </svg>
 );
 
-export default function NavMobile({ navOpen, closeNav }: { navOpen: boolean; closeNav: () => void }) {
+export default function FullScreenNav({ navOpen, closeNav }: { navOpen: boolean; closeNav: () => void }) {
   const router = useRouter();
   const { smoothPush } = useSmoothPush();
 

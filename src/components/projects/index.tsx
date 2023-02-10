@@ -12,17 +12,6 @@ import { getProjects, MyProject } from "./projects";
 export default function ProjectsComps() {
   const { t } = useTranslation("projects");
   const projectArr = getProjects(t);
-  const [selected, setSelected] = useState<MyProject | null>(null);
-
-  const handleClickProject = useCallback((project: MyProject) => {
-    setSelected(project);
-    deActivateBodyScroll();
-  }, []);
-
-  const closeProjectDetail = useCallback(() => {
-    setSelected(null);
-    activateBodyScroll();
-  }, []);
 
   return (
     <div className={clsx("relative sm:px-20 md:px-30 lg:px-0")}>
@@ -30,16 +19,16 @@ export default function ProjectsComps() {
       <div className={clsx("w-full flex flex-col gap-8 animate-slide-up-fade-in", "lg:flex-row")}>
         <div className={clsx("w-full flex flex-col gap-8", "lg:gap-6")}>
           {projectArr.slice(0, 2).map((project) => (
-            <ProjectsBox key={project.title} project={project} handleClickProject={handleClickProject} />
+            <ProjectsBox key={project.title} project={project} />
           ))}
         </div>
         <div className={clsx("w-full flex flex-col gap-8", "lg:gap-6")}>
           {projectArr.slice(2).map((project) => (
-            <ProjectsBox key={project.title} project={project} handleClickProject={handleClickProject} />
+            <ProjectsBox key={project.title} project={project} />
           ))}
         </div>
       </div>
-      {selected && <ProjectDetail project={selected} closeProjectDetail={closeProjectDetail} />}
+      {/* {selected && <ProjectDetail project={selected} closeProjectDetail={closeProjectDetail} />} */}
     </div>
   );
 }

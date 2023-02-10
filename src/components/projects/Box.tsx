@@ -1,3 +1,4 @@
+import { CommonContext } from "@/context/common";
 import { CursorContext } from "@/context/cursor";
 import clsx from "clsx";
 import Image from "next/image";
@@ -6,15 +7,10 @@ import { useState } from "react";
 import { MyProject } from "./projects";
 import Tag from "./Tag";
 
-export default React.memo(function ProjectsBox({
-  project,
-  handleClickProject,
-}: {
-  project: MyProject;
-  handleClickProject: (project: MyProject) => void;
-}) {
+export default React.memo(function ProjectsBox({ project }: { project: MyProject }) {
   const { height, title, summary, thumbnail, technologies } = project;
   const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
+  const { openProjectDetail } = useContext(CommonContext);
   const [loading, setLoading] = useState(true);
   const [hovered, setHovered] = useState(false);
 
@@ -41,7 +37,7 @@ export default React.memo(function ProjectsBox({
   return (
     <div
       {...pointerEvtProps}
-      onClick={() => handleClickProject(project)}
+      onClick={() => openProjectDetail(project)}
       className="relative max-w-screen-sm rounded-xl overflow-hidden cursor-pointer"
       style={{ height: `${height}px` }}
     >

@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import React from "react";
 
 const CircleStackIcon = () => (
   <svg
@@ -34,7 +35,7 @@ export default function AboutSection({
           "lg:flex-row lg:justify-between lg:items-center"
         )}
       >
-        <div className={clsx("mb-2 flex gap-2 font-semibold", "lg:mb-0")}>
+        <div className={clsx("mb-2 flex items-center gap-2 text-lg font-semibold", "lg:mb-0")}>
           <div className="w-5 h-5">
             <CircleStackIcon />
           </div>

@@ -55,6 +55,7 @@ export default React.memo(function LocaleButton() {
         router.asPath,
         {
           locale: localeTo,
+          scroll: false,
         }
       )
       .then((result: boolean) => {

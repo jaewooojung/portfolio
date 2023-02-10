@@ -1,8 +1,5 @@
 import { createContext, createRef, RefObject, useCallback, useEffect, useMemo, useState } from "react";
-
-function noProviderHandler(contextName: string) {
-  console.error(`Cannot found ${contextName} Provider`);
-}
+import { noProviderHandler } from "../utils/common";
 
 interface ICursor {
   isScreenBelowLg: boolean;

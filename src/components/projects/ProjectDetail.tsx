@@ -1,5 +1,7 @@
+import { CommonContext } from "@/context/common";
 import clsx from "clsx";
 import Image from "next/image";
+import { useContext } from "react";
 import { MyProject } from "./projects";
 import Tag from "./Tag";
 
@@ -21,13 +23,8 @@ const SubTitle = ({ children }: { children: React.ReactNode }) => (
 );
 const SubDescription = ({ children }: { children: React.ReactNode }) => <div className="mb-8 text-sm">{children}</div>;
 
-export default function ProjectDetail({
-  project,
-  closeProjectDetail,
-}: {
-  project: MyProject;
-  closeProjectDetail: () => void;
-}) {
+export default function ProjectDetail({ project }: { project: MyProject }) {
+  const { closeProjectDetail } = useContext(CommonContext);
   const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
 
   return (

@@ -1,6 +1,7 @@
 import { CursorContext } from "@/context/cursor";
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import clsx from "clsx";
+import React from "react";
 import { useRouter } from "next/router";
 import { useCallback, useContext, useEffect, useState } from "react";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
@@ -10,6 +11,7 @@ import Logo from "./Logo";
 export const tabs = ["about", "projects", "contact"];
 
 export default function LayoutHeader({ openNav }: { openNav: () => void }) {
+  console.log("LayoutHeader");
   const { cursorAPI } = useContext(CursorContext);
   const router = useRouter();
   const { smoothPush } = useSmoothPush();

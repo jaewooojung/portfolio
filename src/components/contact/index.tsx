@@ -9,16 +9,19 @@ export default function ContactComps() {
       <div className="text-sm">
         <hr className="mb-4" />
         <div className="">{t("div1")}</div>
+        <br />
+        <div className="">주력 포지션 - 웹 프론트앤드 전반(react) | 퍼블리싱</div>
+        <div className="">주력 포지션 - 3D 랜더링</div>
         <hr className="my-4" />
         <div>
-          <span>이메일 - </span>
+          <span>{t("email")} - </span>
           <a href="mailto: eoldamstory@gmail.com" className="font-bold tracking-wider">
             eoldamstory@gmail.com
           </a>
         </div>
         <div>
           <span>
-            카카오톡 아이디 - <span className="font-bold">sarada3</span>
+            {t("kakaotalkId")} - <span className="font-bold">sarada3</span>
           </span>
         </div>
       </div>

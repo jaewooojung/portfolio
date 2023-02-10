@@ -1,13 +1,44 @@
-import clsx from "clsx";
+import { CommonContext } from "@/context/common";
+import { CursorContext } from "@/context/cursor";
 import { useTranslation } from "next-i18next";
+import { useContext, useMemo } from "react";
+import { getProjects } from "../projects/projects";
 import { PageTitle } from "../reuse/common";
 import LinkButton from "../reuse/LinkButton";
 import AboutSection from "./Section";
 
+function SubTitle({ children }: { children: React.ReactNode }) {
+  return <div className="font-semibold">{children}</div>;
+}
+
+function SubDescription({ children }: { children: React.ReactNode }) {
+  return <div className="">{children}</div>;
+}
+
 export default function AboutComps() {
   const { t } = useTranslation("about");
+  const { t: projectT } = useTranslation("projects");
+  const { openProjectDetail } = useContext(CommonContext);
+  const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
+
+  const handleClickProjectLink = useMemo(() => {
+    const projectArr = getProjects(projectT);
+    const [felix, guplay, ipad, awesomeShaders] = projectArr;
+    return {
+      ipad: () => openProjectDetail(ipad),
+      guplay: () => openProjectDetail(guplay),
+      awesomeShaders: () => openProjectDetail(awesomeShaders),
+    };
+  }, [openProjectDetail, projectT]);
+
+  const linkProps = isScreenBelowLg
+    ? {}
+    : {
+        onMouseEnter: () => cursorAPI.scaleUpBorder(),
+        onMouseLeave: cursorAPI.scaleDownBorder,
+      };
   return (
-    <div className="relative">
+    <div className="relative leading-loose">
       <PageTitle title="About me" />
       <AboutSection
         title={t("section1.title")}
@@ -23,24 +54,42 @@ export default function AboutComps() {
         content={
           <ul className="flex flex-col gap-2">
             <li>
-              <div>{t("section2.li1.title")}</div>
-              <div>{t("section2.li1.description")}</div>
+              <SubTitle>{t("section2.li1.title")}</SubTitle>
+              <SubDescription>
+                - {t("section2.li1.description1")}
+                <a onClick={handleClickProjectLink.ipad} className="text-emerald-500" {...linkProps}>
+                  {t("section2.li1.projectLink")}
+                </a>
+                {t("section2.li1.description2")}
+              </SubDescription>
             </li>
             <li>
-              <div>{t("section2.li2.title")}</div>
-              <div>{t("section2.li2.description")}</div>
+              <SubTitle>{t("section2.li2.title")}</SubTitle>
+              <SubDescription>
+                - {t("section2.li2.description1")}
+                <a onClick={handleClickProjectLink.guplay} className="text-emerald-500" {...linkProps}>
+                  {t("section2.li2.projectLink")}
+                </a>
+                {t("section2.li2.description2")}{" "}
+              </SubDescription>
             </li>
             <li>
-              <div>{t("section2.li3.title")}</div>
-              <div>{t("section2.li3.description")}</div>
+              <SubTitle>{t("section2.li3.title")}</SubTitle>
+              <SubDescription>- {t("section2.li3.description")}</SubDescription>
             </li>
             <li>
-              <div>{t("section2.li4.title")}</div>
-              <div>{t("section2.li4.description")}</div>
+              <SubTitle>{t("section2.li4.title")}</SubTitle>
+              <SubDescription>- {t("section2.li4.description")}</SubDescription>
             </li>
             <li>
-              <div>{t("section2.li5.title")}</div>
-              <div>{t("section2.li5.description")}</div>
+              <SubTitle>{t("section2.li5.title")}</SubTitle>
+              <SubDescription>
+                - {t("section2.li5.description1")}
+                <a onClick={handleClickProjectLink.awesomeShaders} className="text-emerald-500" {...linkProps}>
+                  {t("section2.li5.projectLink")}
+                </a>
+                {t("section2.li5.description2")}{" "}
+              </SubDescription>
             </li>
           </ul>
         }
@@ -51,24 +100,24 @@ export default function AboutComps() {
         content={
           <ul className="flex flex-col gap-2">
             <li>
-              <div>{t("section4.li1.title")}</div>
-              <div>{t("section4.li1.description")}</div>
+              <SubTitle>{t("section4.li1.title")}</SubTitle>
+              <SubDescription>{t("section4.li1.description")}</SubDescription>
             </li>
             <li>
-              <div>{t("section4.li2.title")}</div>
-              <div>{t("section4.li2.description")}</div>
+              <SubTitle>{t("section4.li2.title")}</SubTitle>
+              <SubDescription>{t("section4.li2.description")}</SubDescription>
             </li>
             <li>
-              <div>{t("section4.li3.title")}</div>
-              <div>{t("section4.li3.description")}</div>
+              <SubTitle>{t("section4.li3.title")}</SubTitle>
+              <SubDescription>{t("section4.li3.description")}</SubDescription>
             </li>
             <li>
-              <div>{t("section4.li4.title")}</div>
-              <div>{t("section4.li4.description")}</div>
+              <SubTitle>{t("section4.li4.title")}</SubTitle>
+              <SubDescription>{t("section4.li4.description")}</SubDescription>
             </li>
             <li>
-              <div>{t("section4.li5.title")}</div>
-              <div>{t("section4.li5.description")}</div>
+              <SubTitle>{t("section4.li5.title")}</SubTitle>
+              <SubDescription>{t("section4.li5.description")}</SubDescription>
             </li>
           </ul>
         }

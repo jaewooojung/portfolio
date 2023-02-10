@@ -2,6 +2,7 @@ import { TFunction } from "next-i18next";
 
 export type MyProject = {
   height: number;
+  id: string;
   title: string;
   summary: string;
   thumbnail: string;
@@ -15,6 +16,7 @@ export function getProjects(t: TFunction): Array<MyProject> {
   return [
     {
       height: 340,
+      id: "felix",
       title: "Felix",
       summary: t("project1.summary"),
       thumbnail: "/videos/thumbnail-felix.mp4",
@@ -25,6 +27,7 @@ export function getProjects(t: TFunction): Array<MyProject> {
     },
     {
       height: 260,
+      id: "guplay",
       title: "Guplay",
       summary: t("project2.summary"),
       thumbnail: "/images/thumbnail-guplay.png",
@@ -35,6 +38,7 @@ export function getProjects(t: TFunction): Array<MyProject> {
     },
     {
       height: 260,
+      id: "ipad",
       title: "Ipad",
       summary: t("project3.summary"),
       thumbnail: "/images/thumbnail-ipad.png",
@@ -45,6 +49,7 @@ export function getProjects(t: TFunction): Array<MyProject> {
     },
     {
       height: 340,
+      id: "awesomeShaders",
       title: "Awesome shaders",
       summary: t("project4.summary"),
       thumbnail: "/videos/thumbnail-awesomeShaders.mp4",

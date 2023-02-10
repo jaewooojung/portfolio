@@ -1,18 +1,23 @@
 import clsx from "clsx";
 import Head from "next/head";
 import Cursor from "./Cursor";
-import LayoutFooter from "./Footer";
-import LayoutHeader from "./Header";
+import LayoutFooter from "./LayoutFooter";
+import LayoutHeader from "./LayoutHeader";
 import Background from "./Background";
 import SideBar from "./SideBar";
-import { LAYOUT_FADE_DURATION } from "../../constant";
+import { LAYOUT_FADE_DURATION } from "../constant";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { CommonContext } from "@/context/common";
-import NavMobile from "./NavMobile";
-import { activateBodyScroll, deActivateBodyScroll } from "../../utils/dom";
+import FullScreenNav from "./FullScreenNav";
+import { activateBodyScroll, deActivateBodyScroll } from "../utils/dom";
+import LayoutMain from "./LayoutMain";
+import { CursorContext } from "@/context/cursor";
+import ProjectDetail from "@/components/projects/ProjectDetail";
+import Memorizing from "./Memorizing";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { layoutRef } = useContext(CommonContext);
+  const { layoutRef, project } = useContext(CommonContext);
+  const { isScreenBelowLg } = useContext(CursorContext);
   const [navOpen, setNavOpen] = useState(false);
 
   const openNav = useCallback(() => {
@@ -48,13 +53,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           "dark:text-zinc-400"
         )}
       >
-        <SideBar />
-        <LayoutHeader openNav={openNav} />
-        <main className={clsx("relative pt-8 pb-14", "lg:px-16 xl:px-32 2xl:px-40 lg:pt-10 lg:pb-16")}>{children}</main>
-        <LayoutFooter />
-        <NavMobile navOpen={navOpen} closeNav={closeNav} />
-        <Cursor />
+        <Memorizing>
+          <LayoutHeader openNav={openNav} />
+          <LayoutMain>{children}</LayoutMain>
+          <LayoutFooter />
+        </Memorizing>
+        {isScreenBelowLg ? <FullScreenNav navOpen={navOpen} closeNav={closeNav} /> : <SideBar />}
+        {project && <ProjectDetail project={project} />}
       </div>
+      <Cursor />
     </>
   );
 }

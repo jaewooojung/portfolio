@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "next-themes";
-import { CursorContext } from "@/context/cursor";
 
 export const MoonIcon = () => (
   <svg

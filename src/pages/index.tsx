@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Layout from "@/components/Layout";
+import Layout from "@/Layout";
 import HomeComps from "@/components/home";
 
 export default function Home() {

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "@/components/Layout";
+import Layout from "@/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ContactComps from "@/components/contact";
 
