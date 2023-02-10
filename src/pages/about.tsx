@@ -7,7 +7,7 @@ export default function About() {
   return (
     <Layout>
       <Head>
-        <title>About me | Jaewoo Jung</title>
+        <title>JW | About me</title>
       </Head>
       <AboutComps />
     </Layout>

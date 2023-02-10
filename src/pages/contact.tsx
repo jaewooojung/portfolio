@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>Contact | Jaewoo Jung</title>
+        <title>JW | Contact</title>
       </Head>
       <ContactComps />
     </Layout>

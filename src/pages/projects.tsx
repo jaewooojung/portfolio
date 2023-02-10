@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <Layout>
       <Head>
-        <title>Projects | Jaewoo Jung</title>
+        <title>JW | Projects</title>
       </Head>
       <ProjectsComps />
     </Layout>

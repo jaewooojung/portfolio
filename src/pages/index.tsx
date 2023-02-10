@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Home | Jaewoo Jung</title>
+        <title>JW | Home</title>
       </Head>
       <HomeComps />
     </Layout>
