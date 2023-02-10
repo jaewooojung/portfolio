@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     activateBodyScroll();
   }, []);
-  console.log(project);
+
   return (
     <>
       <DefaultHead />

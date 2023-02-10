@@ -14,5 +14,6 @@
   "project4": {
     "summary": "glsl기반 Shader를 사용한 애니메이션 구현",
     "description": "포트폴리오용 웹사이트. custom Shader를 사용하여 화려한 애니메이션들을 구현함. 현재까지 tree 구현"
-  }
+  },
+  "portfolioRepo": "현재 사이트 코드는 여기있어요"
 }

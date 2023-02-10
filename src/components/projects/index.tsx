@@ -11,6 +11,19 @@ export default function ProjectsComps() {
   return (
     <div className={clsx("relative sm:px-20 md:px-30 lg:px-0")}>
       <PageTitle title="Projects" />
+      <hr className="my-8" />
+      <div className="text-sm font-semibold">
+        <span className="mr-2">{t("portfolioRepo")}</span>
+        <a
+          href="https://github.com/sarada3/portfolio"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline underline-offset-4"
+        >
+          https://github.com/sarada3/portfolio
+        </a>
+      </div>
+      <hr className="my-8" />
       <div className={clsx("w-full flex flex-col gap-8 animate-slide-up-fade-in", "lg:flex-row")}>
         <div className={clsx("w-full flex flex-col gap-8", "lg:gap-6")}>
           {projectArr.slice(0, 2).map((project) => (

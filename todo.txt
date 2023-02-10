@@ -1,8 +1,1 @@
-about, project 문구 수정
-완성
-
-완성후에
-awesome shaders tree 퍼포먼스 및 가독성 향상
-felix, guplay 대충 손보기
-
-2/13~ 이력서 넣기 시작 
+cursor hover animation - zindex 말고 mix blender mode로 해결해보기

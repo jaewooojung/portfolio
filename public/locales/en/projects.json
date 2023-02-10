@@ -14,5 +14,6 @@
   "project4": {
     "summary": "Implementation of awesome 3D animations using glsl-based shader",
     "description": "Website for Portfolio. Using custom shader to implement awesome 3D animations. Implementation of tree"
-  }
+  },
+  "portfolioRepo": "You can also check the current site repo"
 }
