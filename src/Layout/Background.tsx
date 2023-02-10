@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-export default function Background() {
+export default React.memo(function Background() {
   return (
     <div
       className={clsx(
@@ -19,4 +19,4 @@ export default function Background() {
       </div>
     </div>
   );
-}
+});

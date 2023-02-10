@@ -1,12 +1,11 @@
-import React from "react";
-import { CursorContext } from "@/context/cursor";
-import { ProjectAPIContext, ProjectContext } from "@/context/project";
+import React, { useContext, useMemo } from "react";
 import { useTranslation } from "next-i18next";
-import { useContext, useMemo } from "react";
-import { getProjects } from "../projects/projects";
-import { PageTitle } from "../reuse/common";
-import LinkButton from "../reuse/LinkButton";
 import AboutSection from "./Section";
+import { PageTitle } from "../reuse/common";
+import AnimatedLink from "../reuse/AnimatedLink";
+import { CursorContext } from "@/context/cursor";
+import { ProjectAPIContext } from "@/context/project";
+import { getProjects } from "../projects/datas";
 
 function SubTitle({ children }: { children: React.ReactNode }) {
   return <div className="font-semibold">{children}</div>;
@@ -51,14 +50,14 @@ export default function AboutComps() {
       />
       <AboutSection
         title={t("section2.title")}
-        linkIcon={<LinkButton title={t("section2.projectLink")} path="/projects" />}
+        linkIcon={<AnimatedLink title={t("section2.projectLink")} path="/projects" arrow={true} />}
         content={
           <ul className="flex flex-col gap-2">
             <li>
               <SubTitle>{t("section2.li1.title")}</SubTitle>
               <SubDescription>
                 - {t("section2.li1.description1")}
-                <a onClick={handleClickProjectLink.ipad} className="text-emerald-500" {...linkProps}>
+                <a onClick={handleClickProjectLink.ipad} className="text-emerald-500" href="#" {...linkProps}>
                   {t("section2.li1.projectLink")}
                 </a>
                 {t("section2.li1.description2")}
@@ -68,7 +67,7 @@ export default function AboutComps() {
               <SubTitle>{t("section2.li2.title")}</SubTitle>
               <SubDescription>
                 - {t("section2.li2.description1")}
-                <a onClick={handleClickProjectLink.guplay} className="text-emerald-500" {...linkProps}>
+                <a onClick={handleClickProjectLink.guplay} className="text-emerald-500" href="#" {...linkProps}>
                   {t("section2.li2.projectLink")}
                 </a>
                 {t("section2.li2.description2")}{" "}
@@ -86,7 +85,7 @@ export default function AboutComps() {
               <SubTitle>{t("section2.li5.title")}</SubTitle>
               <SubDescription>
                 - {t("section2.li5.description1")}
-                <a onClick={handleClickProjectLink.awesomeShaders} className="text-emerald-500" {...linkProps}>
+                <a onClick={handleClickProjectLink.awesomeShaders} className="text-emerald-500" href="#" {...linkProps}>
                   {t("section2.li5.projectLink")}
                 </a>
                 {t("section2.li5.description2")}{" "}

@@ -1,14 +1,14 @@
 import Head from "next/head";
-import Cursor from "./Cursor";
-import Background from "./Background";
-import SideBar from "./SideBar";
 import { useCallback, useContext, useEffect, useState } from "react";
+import Background from "./Background";
+import Base from "./Base";
+import SideBar from "./SideBar";
 import FullScreenNav from "./FullScreenNav";
-import { activateBodyScroll, deActivateBodyScroll } from "../utils/dom";
-import { CursorContext } from "@/context/cursor";
 import ProjectDetail from "@/Layout/ProjectDetail";
-import Memorizing from "./Memorizing";
+import Cursor from "./Cursor";
+import { CursorContext } from "@/context/cursor";
 import { ProjectContext } from "@/context/project";
+import { activateBodyScroll, deActivateBodyScroll } from "../utils/dom";
 
 function DefaultHead() {
   return (
@@ -43,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <DefaultHead />
       <Background />
-      <Memorizing openNav={openNav}>{children}</Memorizing>
+      <Base openNav={openNav}>{children}</Base>
       {isScreenBelowLg ? <FullScreenNav navOpen={navOpen} closeNav={closeNav} /> : <SideBar />}
       {project && <ProjectDetail project={project} />}
       <Cursor />

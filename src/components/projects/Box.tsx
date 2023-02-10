@@ -1,12 +1,10 @@
-import { CommonContext } from "@/context/common";
-import { CursorContext } from "@/context/cursor";
-import { ProjectAPIContext, ProjectContext } from "@/context/project";
 import clsx from "clsx";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
-import React, { useContext } from "react";
-import { useState } from "react";
-import { MyProject } from "./projects";
 import Tag from "./Tag";
+import { CursorContext } from "@/context/cursor";
+import { ProjectAPIContext } from "@/context/project";
+import { MyProject } from "./datas";
 
 export default React.memo(function ProjectsBox({ project }: { project: MyProject }) {
   const { height, title, summary, thumbnail, technologies } = project;
@@ -36,13 +34,14 @@ export default React.memo(function ProjectsBox({ project }: { project: MyProject
       };
 
   return (
-    <div
-      {...pointerEvtProps}
+    <button
       onClick={() => openProjectDetail(project)}
-      className="relative max-w-screen-sm rounded-xl overflow-hidden cursor-pointer"
+      className="relative max-w-screen-sm text-left rounded-xl overflow-hidden cursor-pointer"
       style={{ height: `${height}px` }}
+      tabIndex={0}
+      {...pointerEvtProps}
     >
-      <div className="absolute inset-0">
+      <figure className="absolute inset-0">
         {thumbnail.startsWith("/images") ? (
           <Image
             alt={`${title}`}
@@ -72,7 +71,7 @@ export default React.memo(function ProjectsBox({ project }: { project: MyProject
           }}
           className="absolute inset-0 flex items-end"
         >
-          <div
+          <figcaption
             className={clsx("p-4 w-full text-white transition-all duration-300", {
               "opacity-100 translate-y-0": hovered || isScreenBelowLg,
               "opacity-0 translate-y-2": !(hovered || isScreenBelowLg),
@@ -85,9 +84,9 @@ export default React.memo(function ProjectsBox({ project }: { project: MyProject
                 <Tag key={`${title}-${tech}`} tech={tech} />
               ))}
             </ul>
-          </div>
+          </figcaption>
         </div>
-      </div>
-    </div>
+      </figure>
+    </button>
   );
 });

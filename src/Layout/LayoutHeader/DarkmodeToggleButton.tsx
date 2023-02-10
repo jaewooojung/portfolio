@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
 import clsx from "clsx";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export const MoonIcon = () => (

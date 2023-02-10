@@ -1,10 +1,11 @@
-import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import DarkmodeToggleButton from "./LayoutHeader/DarkmodeToggleButton";
+import React from "react";
 import LocaleButton from "./LayoutHeader/LocaleButton";
-import { tabs } from "./LayoutHeader";
+import DarkmodeToggleButton from "./LayoutHeader/DarkmodeToggleButton";
 import { GithubLink, FacebookLink } from "./SideBar";
+import { tabs } from "./LayoutHeader";
+import useSmoothPush from "@/utils/hooks/useSmoothPush";
 
 const CloseIcon = () => (
   <svg
@@ -19,7 +20,7 @@ const CloseIcon = () => (
   </svg>
 );
 
-export default function FullScreenNav({ navOpen, closeNav }: { navOpen: boolean; closeNav: () => void }) {
+export default React.memo(function FullScreenNav({ navOpen, closeNav }: { navOpen: boolean; closeNav: () => void }) {
   const router = useRouter();
   const { smoothPush } = useSmoothPush();
 
@@ -47,7 +48,9 @@ export default function FullScreenNav({ navOpen, closeNav }: { navOpen: boolean;
               underline: router.pathname === "/",
             })}
           >
-            <a onClick={() => smoothPush("/")}>HOME</a>
+            <a onClick={() => smoothPush("/")} href="#">
+              HOME
+            </a>
           </li>
           {tabs.map((tab) => (
             <li
@@ -56,7 +59,9 @@ export default function FullScreenNav({ navOpen, closeNav }: { navOpen: boolean;
                 underline: router.pathname.slice(1) === tab,
               })}
             >
-              <a onClick={() => smoothPush(`/${tab}`)}>{tab.toUpperCase()}</a>
+              <a onClick={() => smoothPush(`/${tab}`)} href="#">
+                {tab.toUpperCase()}
+              </a>
             </li>
           ))}
         </ul>
@@ -81,4 +86,4 @@ export default function FullScreenNav({ navOpen, closeNav }: { navOpen: boolean;
       </nav>
     </div>
   );
-}
+});

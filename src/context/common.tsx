@@ -1,7 +1,4 @@
-import { createContext, createRef, RefObject, useCallback, useState } from "react";
-import { MyProject } from "@/components/projects/projects";
-import { activateBodyScroll, deActivateBodyScroll } from "../utils/dom";
-import { noProviderHandler } from "@/utils/common";
+import { createContext, createRef, RefObject } from "react";
 
 interface ICommon {
   layoutRef: RefObject<HTMLDivElement>;

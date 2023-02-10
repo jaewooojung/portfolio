@@ -1,5 +1,5 @@
-import { createContext, createRef, RefObject, useCallback, useMemo, useState } from "react";
-import { MyProject } from "@/components/projects/projects";
+import { createContext, useCallback, useMemo, useState } from "react";
+import { MyProject } from "@/components/projects/datas";
 import { activateBodyScroll, deActivateBodyScroll } from "../utils/dom";
 import { noProviderHandler } from "@/utils/common";
 

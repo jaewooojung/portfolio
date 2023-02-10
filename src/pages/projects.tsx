@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Layout from "@/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Layout from "@/Layout";
 import ProjectsComps from "@/components/projects";
 
 export default function Projects() {

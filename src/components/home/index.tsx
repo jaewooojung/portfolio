@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
-import LinkButton from "../reuse/LinkButton";
+import AnimatedLink from "../reuse/AnimatedLink";
 
 export default function HomeComps() {
   const { t } = useTranslation("home");
@@ -19,7 +19,9 @@ export default function HomeComps() {
       <div className="text-sm">{t("div1")}</div>
       <div className="text-sm">{t("div2")}</div>
       <hr className="my-4" />
-      <LinkButton title={t("button1")} path="/about" />
+      <div className="max-w-fit">
+        <AnimatedLink title={t("button1")} path="/about" arrow={true} />
+      </div>
     </div>
   );
 }

@@ -1,13 +1,8 @@
-import { CommonContext } from "@/context/common";
-import { CursorContext } from "@/context/cursor";
-import { activateBodyScroll, deActivateBodyScroll } from "@/utils/dom";
 import clsx from "clsx";
 import { useTranslation } from "next-i18next";
-import { useCallback, useContext, useMemo, useState } from "react";
-import { PageTitle } from "../reuse/common";
 import ProjectsBox from "./Box";
-import ProjectDetail from "../../Layout/ProjectDetail";
-import { getProjects, MyProject } from "./projects";
+import { PageTitle } from "../reuse/common";
+import { getProjects } from "./datas";
 
 export default function ProjectsComps() {
   const { t } = useTranslation("projects");

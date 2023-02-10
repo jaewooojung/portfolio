@@ -1,18 +1,16 @@
+import clsx from "clsx";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Logo from "./Logo";
+import LocaleButton from "./LocaleButton";
+import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import { CursorContext } from "@/context/cursor";
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
-import clsx from "clsx";
-import React from "react";
-import { useRouter } from "next/router";
-import { useCallback, useContext, useEffect, useState } from "react";
-import DarkmodeToggleButton from "./DarkmodeToggleButton";
-import LocaleButton from "./LocaleButton";
-import Logo from "./Logo";
 
 export const tabs = ["about", "projects", "contact"];
 
 export default function LayoutHeader({ openNav }: { openNav: () => void }) {
-  console.log("LayoutHeader");
-  const { cursorAPI } = useContext(CursorContext);
+  const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
   const router = useRouter();
   const { smoothPush } = useSmoothPush();
   const [mouseEntered, setMouseEntered] = useState("");
@@ -40,32 +38,39 @@ export default function LayoutHeader({ openNav }: { openNav: () => void }) {
     <header className={clsx("relative w-full h-20 text-zinc-500", "sm:h-28 lg:h-48 xl:h-52 2xl:h-56")}>
       <nav className={clsx("h-full flex justify-between items-center text-lg font-semibold")}>
         <Logo />
-        <div className={clsx("hidden", "lg:flex lg:gap-24")}>
-          <ul className="flex gap-12 xl:gap-16 2xl:gap-24">
-            {tabs.map((tab) => (
-              <li key={tab} className="relative">
-                <a
-                  onClick={() => smoothPush(`/${tab}`)}
-                  onMouseEnter={() => handleMouseEnter(tab)}
-                  onMouseLeave={handleMouseLeave}
-                  className="h-full"
-                >
-                  {tab.slice(0, 1).toUpperCase() + tab.slice(1)}
-                </a>
-                <div
-                  className={clsx("absolute bottom-0 w-full h-[2px] bg-emerald-500 transition-transform select-none", {
-                    "scale-100": mouseEntered === tab || router.pathname === `/${tab}`,
-                    "scale-0": !(mouseEntered === tab || router.pathname === `/${tab}`),
-                  })}
-                ></div>
-              </li>
-            ))}
-          </ul>
-          <div className="h-full flex items-center gap-6">
-            <LocaleButton />
-            <DarkmodeToggleButton fromMobileNav={false} />
+        {!isScreenBelowLg && (
+          <div className={clsx("hidden", "lg:flex lg:gap-24")}>
+            <ul className="flex gap-12 xl:gap-16 2xl:gap-24">
+              {tabs.map((tab) => (
+                <li key={tab} className="relative">
+                  <a
+                    onClick={() => smoothPush(`/${tab}`)}
+                    onMouseEnter={() => handleMouseEnter(tab)}
+                    onMouseLeave={handleMouseLeave}
+                    className="h-full"
+                    href="#"
+                  >
+                    {tab.slice(0, 1).toUpperCase() + tab.slice(1)}
+                  </a>
+                  <div
+                    className={clsx(
+                      "absolute bottom-0 w-full h-[2px] bg-emerald-500 transition-transform select-none",
+                      {
+                        "scale-100": mouseEntered === tab || router.pathname === `/${tab}`,
+                        "scale-0": !(mouseEntered === tab || router.pathname === `/${tab}`),
+                      }
+                    )}
+                  ></div>
+                </li>
+              ))}
+            </ul>
+            <div className="h-full flex items-center gap-6">
+              <LocaleButton />
+              <DarkmodeToggleButton fromMobileNav={false} />
+            </div>
           </div>
-        </div>
+        )}
+
         <div className={clsx("h-full flex items-center", "lg:hidden")}>
           <button onClick={openNav} className="relative w-5 h-5">
             <div className="w-full h-full flex flex-col justify-between">

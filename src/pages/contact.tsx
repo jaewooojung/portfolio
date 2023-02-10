@@ -1,13 +1,13 @@
 import Head from "next/head";
-import Layout from "@/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Layout from "@/Layout";
 import ContactComps from "@/components/contact";
 
 export default function Contact() {
   return (
     <Layout>
       <Head>
-        <title>Contact me | Jaewoo Jung</title>
+        <title>Contact | Jaewoo Jung</title>
       </Head>
       <ContactComps />
     </Layout>

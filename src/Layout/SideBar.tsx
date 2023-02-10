@@ -1,7 +1,6 @@
-import { CommonContext } from "@/context/common";
-import { CursorContext } from "@/context/cursor";
 import clsx from "clsx";
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { CursorContext } from "@/context/cursor";
 
 export const FacebookLink = ({ twColor }: { twColor: string }) => (
   <a
@@ -29,7 +28,7 @@ export const GithubLink = ({ twColor }: { twColor: string }) => (
   </a>
 );
 
-export default function SideBar() {
+export default React.memo(function SideBar() {
   const { cursorAPI } = useContext(CursorContext);
   const liProps = {
     onMouseEnter: () => cursorAPI.absorbColorToBg("bg-emerald-500"),
@@ -50,4 +49,4 @@ export default function SideBar() {
       </div>
     </aside>
   );
-}
+});

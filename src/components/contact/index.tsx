@@ -10,8 +10,7 @@ export default function ContactComps() {
         <hr className="mb-4" />
         <div className="">{t("div1")}</div>
         <br />
-        <div className="">주력 포지션 - 웹 프론트앤드 전반(react) | 퍼블리싱</div>
-        <div className="">주력 포지션 - 3D 랜더링</div>
+        <div className="">{t("div2")}</div>
         <hr className="my-4" />
         <div>
           <span>{t("email")} - </span>
@@ -21,7 +20,7 @@ export default function ContactComps() {
         </div>
         <div>
           <span>
-            {t("kakaotalkId")} - <span className="font-bold">sarada3</span>
+            {t("kakaotalkId")} - <span className="font-bold">sarada0205</span>
           </span>
         </div>
       </div>

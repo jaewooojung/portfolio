@@ -1,9 +1,8 @@
-import { CommonContext } from "@/context/common";
-import { ProjectAPIContext, ProjectContext } from "@/context/project";
 import clsx from "clsx";
 import Image from "next/image";
 import { useContext } from "react";
-import { MyProject } from "../components/projects/projects";
+import { ProjectAPIContext } from "@/context/project";
+import { MyProject } from "../components/projects/datas";
 import Tag from "../components/projects/Tag";
 
 const ChevronLeftIcon = () => (

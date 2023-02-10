@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import useSmoothPush from "@/utils/hooks/useSmoothPush";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CursorContext } from "@/context/cursor";
+import useSmoothPush from "@/utils/hooks/useSmoothPush";
 
 const ArrowRightIcon = () => (
   <svg
@@ -20,11 +20,19 @@ const ArrowRightIcon = () => (
   </svg>
 );
 
-export default function LinkButton({ title, path }: { title: string; path: string }) {
+export default function AnimatedLink({
+  title,
+  path,
+  arrow,
+}: {
+  title: React.ReactNode;
+  path: string;
+  arrow?: boolean;
+}) {
   const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
   const { smoothPush } = useSmoothPush();
 
-  const buttonProps = isScreenBelowLg
+  const aProps = isScreenBelowLg
     ? {}
     : {
         onMouseEnter: () => cursorAPI.scaleUpAndAbsorbColor("bg-emerald-500"),
@@ -32,15 +40,18 @@ export default function LinkButton({ title, path }: { title: string; path: strin
       };
 
   return (
-    <button
+    <a
       onClick={() => smoothPush(path)}
       className={clsx("flex items-center text-emerald-500", "lg:hover:text-background")}
-      {...buttonProps}
+      href="#"
+      {...aProps}
     >
       <span className="mr-1 font-semibold">{title}</span>
-      <span className="w-6 h-6">
-        <ArrowRightIcon />
-      </span>
-    </button>
+      {arrow && (
+        <span className="w-6 h-6">
+          <ArrowRightIcon />
+        </span>
+      )}
+    </a>
   );
 }
