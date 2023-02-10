@@ -1,5 +1,6 @@
-import { CommonContext } from "@/context/common";
+import React from "react";
 import { CursorContext } from "@/context/cursor";
+import { ProjectAPIContext, ProjectContext } from "@/context/project";
 import { useTranslation } from "next-i18next";
 import { useContext, useMemo } from "react";
 import { getProjects } from "../projects/projects";
@@ -18,7 +19,7 @@ function SubDescription({ children }: { children: React.ReactNode }) {
 export default function AboutComps() {
   const { t } = useTranslation("about");
   const { t: projectT } = useTranslation("projects");
-  const { openProjectDetail } = useContext(CommonContext);
+  const { openProjectDetail } = useContext(ProjectAPIContext);
   const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
 
   const handleClickProjectLink = useMemo(() => {

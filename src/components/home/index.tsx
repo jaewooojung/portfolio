@@ -15,14 +15,10 @@ export default function HomeComps() {
       </p>
       <div>{t("hello")}</div>
       <p className="mb-2">{t("p1")}</p>
-      <br />
-      <hr />
-      <br />
+      <hr className="my-4" />
       <div className="text-sm">{t("div1")}</div>
       <div className="text-sm">{t("div2")}</div>
-      <br />
-      <hr />
-      <br />
+      <hr className="my-4" />
       <LinkButton title={t("button1")} path="/about" />
     </div>
   );

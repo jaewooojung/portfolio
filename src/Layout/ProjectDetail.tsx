@@ -1,9 +1,10 @@
 import { CommonContext } from "@/context/common";
+import { ProjectAPIContext, ProjectContext } from "@/context/project";
 import clsx from "clsx";
 import Image from "next/image";
 import { useContext } from "react";
-import { MyProject } from "./projects";
-import Tag from "./Tag";
+import { MyProject } from "../components/projects/projects";
+import Tag from "../components/projects/Tag";
 
 const ChevronLeftIcon = () => (
   <svg
@@ -24,7 +25,7 @@ const SubTitle = ({ children }: { children: React.ReactNode }) => (
 const SubDescription = ({ children }: { children: React.ReactNode }) => <div className="mb-8 text-sm">{children}</div>;
 
 export default function ProjectDetail({ project }: { project: MyProject }) {
-  const { closeProjectDetail } = useContext(CommonContext);
+  const { closeProjectDetail } = useContext(ProjectAPIContext);
   const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
 
   return (

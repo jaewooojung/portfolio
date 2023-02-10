@@ -4,15 +4,18 @@ import { ThemeProvider } from "next-themes";
 import { CursorProvider } from "@/context/cursor";
 import { CommonProvider } from "@/context/common";
 import "@/styles/globals.css";
+import { ProjectProvider } from "@/context/project";
 
 export default appWithTranslation(function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" enableSystem={false}>
-      <CommonProvider>
-        <CursorProvider>
-          <Component {...pageProps} />
-        </CursorProvider>
-      </CommonProvider>
+      <CursorProvider>
+        <CommonProvider>
+          <ProjectProvider>
+            <Component {...pageProps} />
+          </ProjectProvider>
+        </CommonProvider>
+      </CursorProvider>
     </ThemeProvider>
   );
 });

@@ -2,7 +2,6 @@ import clsx from "clsx";
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
 import { useContext } from "react";
 import { CursorContext } from "@/context/cursor";
-import { CommonContext } from "@/context/common";
 
 const ArrowRightIcon = () => (
   <svg
@@ -35,7 +34,7 @@ export default function LinkButton({ title, path }: { title: string; path: strin
   return (
     <button
       onClick={() => smoothPush(path)}
-      className={clsx("flex text-emerald-500", "lg:hover:text-background")}
+      className={clsx("flex items-center text-emerald-500", "lg:hover:text-background")}
       {...buttonProps}
     >
       <span className="mr-1 font-semibold">{title}</span>

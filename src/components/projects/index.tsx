@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 import { useCallback, useContext, useMemo, useState } from "react";
 import { PageTitle } from "../reuse/common";
 import ProjectsBox from "./Box";
-import ProjectDetail from "./ProjectDetail";
+import ProjectDetail from "../../Layout/ProjectDetail";
 import { getProjects, MyProject } from "./projects";
 
 export default function ProjectsComps() {

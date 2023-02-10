@@ -1,5 +1,6 @@
 import { CommonContext } from "@/context/common";
 import { CursorContext } from "@/context/cursor";
+import { ProjectAPIContext, ProjectContext } from "@/context/project";
 import clsx from "clsx";
 import Image from "next/image";
 import React, { useContext } from "react";
@@ -10,7 +11,7 @@ import Tag from "./Tag";
 export default React.memo(function ProjectsBox({ project }: { project: MyProject }) {
   const { height, title, summary, thumbnail, technologies } = project;
   const { isScreenBelowLg, cursorAPI } = useContext(CursorContext);
-  const { openProjectDetail } = useContext(CommonContext);
+  const { openProjectDetail } = useContext(ProjectAPIContext);
   const [loading, setLoading] = useState(true);
   const [hovered, setHovered] = useState(false);
 
