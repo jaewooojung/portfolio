@@ -20,7 +20,7 @@ export default function ContactComps() {
         </div>
         <div>
           <span>
-            {t("kakaotalkId")} - <span className="font-bold">sarada0205</span>
+            {t("kakaotalkId")} - <span>sarada0205</span>
           </span>
         </div>
       </div>

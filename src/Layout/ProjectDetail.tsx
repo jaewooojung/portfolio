@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { ProjectAPIContext } from "@/context/project";
 import { MyProject } from "../components/projects/datas";
 import Tag from "../components/projects/Tag";
