@@ -17,7 +17,7 @@ export const FacebookLink = ({ twColor }: { twColor: string }) => (
 
 export const GithubLink = ({ twColor }: { twColor: string }) => (
   <a
-    href="https://github.com/sarada3"
+    href="https://github.com/firstturtle23"
     target="_blank"
     rel="noreferrer"
     className={clsx(twColor, "lg:hover:fill-background")}
