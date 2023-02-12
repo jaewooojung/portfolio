@@ -8,8 +8,8 @@ import { ProjectProvider } from "@/context/project";
 import "@/styles/globals.css";
 
 const DEFAULT_SEO = {
-  title: "정재우의 포트폴리오",
-  description: "개발자로 살아보자! 늦깎이 개발자 정재우의 포트폴리오",
+  title: "JW's portfolio",
+  description: "웹 프론트앤드 개발자 정재우의 포트폴리오입니다.",
   openGraph: {
     type: "website",
     locale: "ko_KR",

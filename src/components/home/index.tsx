@@ -14,10 +14,14 @@ export default function HomeComps() {
         <span className="">{t("span1")}</span>
       </p>
       <div>{t("hello")}</div>
-      <p className="mb-2">{t("p1")}</p>
+      <div>
+        {t("div1")}
+        <br />
+        {t("div2")}
+      </div>
       <hr className="my-4" />
-      <div className="text-sm">{t("div1")}</div>
-      <div className="text-sm">{t("div2")}</div>
+      <div className="text-sm">{t("div3")}</div>
+      <div className="text-sm">{t("div4")}</div>
       <hr className="my-4" />
       <div className="max-w-fit">
         <AnimatedLink title={t("button1")} path="/about" arrow={true} />
