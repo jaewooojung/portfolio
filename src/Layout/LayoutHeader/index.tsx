@@ -28,6 +28,10 @@ export default function LayoutHeader({ openNav }: { openNav: () => void }) {
     cursorAPI.scaleDownBorder();
   }, [cursorAPI]);
 
+  /**
+   * prefetching for the custom routing(smoothrouting).
+   * This action is not required when using Link.
+   */
   useEffect(() => {
     ["/", ...tabs].forEach((path) => {
       router.prefetch(path);

@@ -1,3 +1,7 @@
+/*
+Stats used across application that are not completely independent.
+*/
+
 import { createContext, createRef, RefObject } from "react";
 
 interface ICommon {

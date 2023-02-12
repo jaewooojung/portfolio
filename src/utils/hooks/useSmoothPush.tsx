@@ -3,6 +3,9 @@ import { useCallback, useContext } from "react";
 import { CommonContext } from "@/context/common";
 import { LAYOUT_FADE_DURATION } from "../../constant";
 
+/**
+ * This hook is for the fade out effect when next routing
+ */
 export default function useSmoothPush() {
   const router = useRouter();
   const { layoutRef } = useContext(CommonContext);

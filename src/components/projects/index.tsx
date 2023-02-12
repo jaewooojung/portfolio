@@ -36,7 +36,6 @@ export default function ProjectsComps() {
           ))}
         </div>
       </div>
-      {/* {selected && <ProjectDetail project={selected} closeProjectDetail={closeProjectDetail} />} */}
     </div>
   );
 }
