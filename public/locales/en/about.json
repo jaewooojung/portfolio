@@ -8,7 +8,7 @@
     "projectLink": "View Projects",
     "li1": {
       "title": "HTML, CSS (medium)",
-      "description1": "I have essential knowledge to make web application. i am familiar with designing DOM structures or leveraging the properties of elements and i can create ",
+      "description1": "I have essential knowledge to make web application. i can make ",
       "projectLink": "simple websites ",
       "description2": "without library like ReactJS."
     },
@@ -19,11 +19,11 @@
       "description2": "and implement it."
     },
     "li3": {
-      "title": "Reactjs (medium)",
-      "description": "I can design a scalable component tree to meet client's needs. i am familiar with the use of state and the concept of component life cycle, and I am interested in improving scalability, readability, and performance."
+      "title": "Reactjs (low)",
+      "description": "I can implement a dynamic application with react"
     },
     "li4": {
-      "title": "Nextjs (medium)",
+      "title": "Nextjs (low)",
       "description": "I can saparate out the work of react component into server side and client side. i can properly use static HTML serving and server side rendering for each page(route)."
     },
     "li5": {
