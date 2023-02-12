@@ -58,7 +58,7 @@ export default React.memo(function ProjectsBox({ project }: { project: MyProject
           />
         ) : (
           <div className="w-full h-full">
-            <video src={thumbnail} className="w-full h-full object-cover" autoPlay muted loop />
+            <video src={thumbnail} className="w-full h-full object-cover" autoPlay playsInline muted loop />
           </div>
         )}
 

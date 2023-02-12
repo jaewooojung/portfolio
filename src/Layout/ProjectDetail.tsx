@@ -62,7 +62,7 @@ export default function ProjectDetail({ project }: { project: MyProject }) {
                 blurDataURL={thumbnail}
               />
             ) : (
-              <video src={thumbnail} className="w-full h-full object-cover" autoPlay muted loop />
+              <video src={thumbnail} className="w-full h-full object-cover" autoPlay playsInline muted loop />
             )}
           </div>
           <SubTitle>About</SubTitle>
