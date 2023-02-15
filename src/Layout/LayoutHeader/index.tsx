@@ -76,7 +76,7 @@ export default function LayoutHeader({ openNav }: { openNav: () => void }) {
         )}
 
         <div className={clsx("h-full flex items-center", "lg:hidden")}>
-          <button onClick={openNav} className="relative w-5 h-5">
+          <button onClick={openNav} className="relative w-5 h-5" aria-label="open navigation">
             <div className="w-full h-full flex flex-col justify-between">
               <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>
               <div className="w-full h-[3px] rounded-xl bg-zinc-500"></div>

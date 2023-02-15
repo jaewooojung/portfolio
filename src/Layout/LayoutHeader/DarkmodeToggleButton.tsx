@@ -59,7 +59,11 @@ export default React.memo(function DarkmodeToggleButton({ fromMobileNav }: { fro
   return (
     <div className="flex items-center">
       <div className={clsx("mr-1 w-5 h-5")}>
-        <button disabled={fromMobileNav} onClick={toggleTheme}>
+        <button
+          disabled={fromMobileNav}
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "light mode" : "dark mode"}
+        >
           {theme === "dark" ? <SunIcon /> : <MoonIcon />}
         </button>
       </div>

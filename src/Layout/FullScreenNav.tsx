@@ -37,7 +37,7 @@ export default React.memo(function FullScreenNav({ navOpen, closeNav }: { navOpe
     >
       <nav className="w-full h-full">
         <div className={clsx("w-full h-20 flex justify-end items-center", "sm:h-28 lg:h-48 xl:h-52 2xl:h-56")}>
-          <button onClick={closeNav} className="w-7 h-7 text-zinc-500">
+          <button onClick={closeNav} className="w-7 h-7 text-zinc-500" aria-label="close navigation">
             <CloseIcon />
           </button>
         </div>
