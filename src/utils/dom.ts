@@ -3,5 +3,5 @@ export function deActivateBodyScroll() {
 }
 
 export function activateBodyScroll() {
-  document.body.style.overflowY = "auto";
+  document.body.style.overflowY = "overlay";
 }

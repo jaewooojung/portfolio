@@ -6,7 +6,6 @@ import LocaleButton from "./LocaleButton";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import { CursorContext } from "@/context/cursor";
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
-import Link from "next/link";
 
 export const tabs = ["about", "projects", "contact"];
 

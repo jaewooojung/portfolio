@@ -6,13 +6,7 @@ import LayoutFooter from "./LayoutFooter";
 import { LAYOUT_FADE_DURATION } from "@/constant";
 import { CommonContext } from "@/context/common";
 
-export default React.memo(function Memorizing({
-  children,
-  openNav,
-}: {
-  children: React.ReactNode;
-  openNav: () => void;
-}) {
+export default React.memo(function Base({ children, openNav }: { children: React.ReactNode; openNav: () => void }) {
   const { layoutRef } = useContext(CommonContext);
   return (
     <div

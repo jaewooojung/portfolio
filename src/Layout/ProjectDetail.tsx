@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { useCallback, useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ProjectAPIContext } from "@/context/project";
 import { MyProject } from "../components/projects/datas";
 import Tag from "../components/projects/Tag";
@@ -21,6 +21,7 @@ const ChevronLeftIcon = () => (
 const SubTitle = ({ children }: { children: React.ReactNode }) => (
   <div className="mb-1 text-lg font-semibold">{children}</div>
 );
+
 const SubDescription = ({ children }: { children: React.ReactNode }) => <div className="mb-8 text-sm">{children}</div>;
 
 export default function ProjectDetail({ project }: { project: MyProject }) {
