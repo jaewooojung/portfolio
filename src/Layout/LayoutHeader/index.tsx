@@ -6,6 +6,7 @@ import LocaleButton from "./LocaleButton";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
 import { CursorContext } from "@/context/cursor";
 import useSmoothPush from "@/utils/hooks/useSmoothPush";
+import Link from "next/link";
 
 export const tabs = ["about", "projects", "contact"];
 
@@ -52,7 +53,6 @@ export default function LayoutHeader({ openNav }: { openNav: () => void }) {
                     onMouseEnter={() => handleMouseEnter(tab)}
                     onMouseLeave={handleMouseLeave}
                     className="h-full"
-                    href="#"
                   >
                     {tab.slice(0, 1).toUpperCase() + tab.slice(1)}
                   </a>

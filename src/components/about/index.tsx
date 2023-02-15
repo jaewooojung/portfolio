@@ -57,7 +57,7 @@ export default function AboutComps() {
               <SubTitle>{t("section2.li1.title")}</SubTitle>
               <SubDescription>
                 - {t("section2.li1.description1")}
-                <a onClick={handleClickProjectLink.ipad} className="text-emerald-500" href="#" {...linkProps}>
+                <a onClick={handleClickProjectLink.ipad} className="text-emerald-500" {...linkProps}>
                   {t("section2.li1.projectLink")}
                 </a>
                 {t("section2.li1.description2")}
@@ -67,7 +67,7 @@ export default function AboutComps() {
               <SubTitle>{t("section2.li2.title")}</SubTitle>
               <SubDescription>
                 - {t("section2.li2.description1")}
-                <a onClick={handleClickProjectLink.guplay} className="text-emerald-500" href="#" {...linkProps}>
+                <a onClick={handleClickProjectLink.guplay} className="text-emerald-500" {...linkProps}>
                   {t("section2.li2.projectLink")}
                 </a>
                 {t("section2.li2.description2")}{" "}
@@ -85,7 +85,7 @@ export default function AboutComps() {
               <SubTitle>{t("section2.li5.title")}</SubTitle>
               <SubDescription>
                 - {t("section2.li5.description1")}
-                <a onClick={handleClickProjectLink.awesomeShaders} className="text-emerald-500" href="#" {...linkProps}>
+                <a onClick={handleClickProjectLink.awesomeShaders} className="text-emerald-500" {...linkProps}>
                   {t("section2.li5.projectLink")}
                 </a>
                 {t("section2.li5.description2")}{" "}

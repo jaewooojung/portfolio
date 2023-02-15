@@ -48,9 +48,7 @@ export default React.memo(function FullScreenNav({ navOpen, closeNav }: { navOpe
               underline: router.pathname === "/",
             })}
           >
-            <a onClick={() => smoothPush("/")} href="#">
-              HOME
-            </a>
+            <a onClick={() => smoothPush("/")}>HOME</a>
           </li>
           {tabs.map((tab) => (
             <li
@@ -59,9 +57,7 @@ export default React.memo(function FullScreenNav({ navOpen, closeNav }: { navOpe
                 underline: router.pathname.slice(1) === tab,
               })}
             >
-              <a onClick={() => smoothPush(`/${tab}`)} href="#">
-                {tab.toUpperCase()}
-              </a>
+              <a onClick={() => smoothPush(`/${tab}`)}>{tab.toUpperCase()}</a>
             </li>
           ))}
         </ul>

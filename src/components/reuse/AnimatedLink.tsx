@@ -43,7 +43,6 @@ export default function AnimatedLink({
     <a
       onClick={() => smoothPush(path)}
       className={clsx("flex items-center text-emerald-500", "lg:hover:text-background")}
-      href="#"
       {...aProps}
     >
       <span className="mr-1 font-semibold">{title}</span>
