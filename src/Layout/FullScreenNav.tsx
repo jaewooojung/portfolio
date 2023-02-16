@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import LocaleButton from "./LayoutHeader/LocaleButton";
 import DarkmodeToggleButton from "./LayoutHeader/DarkmodeToggleButton";
 import { GithubLink, FacebookLink } from "./SideBar";

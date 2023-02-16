@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProjectAPIContext } from "@/context/project";
 import { MyProject } from "../components/projects/datas";
 import Tag from "../components/projects/Tag";
+import { useRouter } from "next/router";
 
 const ChevronLeftIcon = () => (
   <svg
@@ -25,8 +26,23 @@ const SubTitle = ({ children }: { children: React.ReactNode }) => (
 const SubDescription = ({ children }: { children: React.ReactNode }) => <div className="mb-8 text-sm">{children}</div>;
 
 export default function ProjectDetail({ project }: { project: MyProject }) {
-  const { closeProjectDetail } = useContext(ProjectAPIContext);
   const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
+  const { closeProjectDetail } = useContext(ProjectAPIContext);
+  const [temp, setTemp] = useState(false);
+  const router = useRouter();
+
+  /**
+   * 현재 임시작업까지만 완료.
+   *
+   * [todo] mobile backbutton 시에
+   * 1. browser의 default bahavior를 막지 않으면서
+   * 2. url을 정확하게 제어할것
+   */
+  useEffect(() => {
+    return () => {
+      closeProjectDetail();
+    };
+  }, [closeProjectDetail]);
 
   return (
     <article onClick={closeProjectDetail} className="fixed inset-0 flex justify-end bg-black bg-opacity-80">
