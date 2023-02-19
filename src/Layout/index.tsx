@@ -44,7 +44,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     activateBodyScroll();
   }, []);
 
-  console.log("site url", process.env["SITE_URL"]);
   return (
     <>
       <DefaultHead />
