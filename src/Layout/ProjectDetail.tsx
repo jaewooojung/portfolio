@@ -1,10 +1,9 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { ProjectAPIContext } from "@/context/project";
 import { MyProject } from "../components/projects/datas";
 import Tag from "../components/projects/Tag";
-import { useRouter } from "next/router";
 
 const ChevronLeftIcon = () => (
   <svg
@@ -28,8 +27,6 @@ const SubDescription = ({ children }: { children: React.ReactNode }) => <div cla
 export default function ProjectDetail({ project }: { project: MyProject }) {
   const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
   const { closeProjectDetail } = useContext(ProjectAPIContext);
-  const [temp, setTemp] = useState(false);
-  const router = useRouter();
 
   /**
    * 현재 임시작업까지만 완료.
