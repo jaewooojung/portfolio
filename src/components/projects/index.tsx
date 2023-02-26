@@ -15,12 +15,12 @@ export default function ProjectsComps() {
       <div className="text-sm font-semibold">
         <span className="mr-2">{t("portfolioRepo")}</span>
         <a
-          href="https://github.com/firstturtle23/portfolio"
+          href="https://github.com/jaewooojung/portfolio"
           target="_blank"
           rel="noreferrer"
           className="hover:underline underline-offset-4"
         >
-          https://github.com/firstturtle23/portfolio
+          https://github.com/jaewooojung/portfolio
         </a>
       </div>
       <hr className="my-8" />

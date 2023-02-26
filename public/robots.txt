@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://portfolio-ten-blond-73.vercel.app/
+
+# Sitemaps
+Sitemap: https://portfolio-ten-blond-73.vercel.app/sitemap.xml
