@@ -27,7 +27,6 @@ const SubDescription = ({ children }: { children: React.ReactNode }) => <div cla
 export default function ProjectDetail({ project }: { project: MyProject }) {
   const { height, title, summary, thumbnail, description, technologies, url, githubUrl } = project;
   const { closeProjectDetail } = useContext(ProjectAPIContext);
-  console.log(closeProjectDetail);
   /**
    * 현재 임시작업까지만 완료.
    *
@@ -95,12 +94,16 @@ export default function ProjectDetail({ project }: { project: MyProject }) {
               {url}
             </a>
           </SubDescription>
-          <SubTitle>Github</SubTitle>
-          <SubDescription>
-            <a href={githubUrl} target="_blank" rel="noreferrer" className="font-bold">
-              {githubUrl}
-            </a>
-          </SubDescription>
+          {githubUrl !== "" && (
+            <>
+              <SubTitle>Github</SubTitle>
+              <SubDescription>
+                <a href={githubUrl} target="_blank" rel="noreferrer" className="font-bold">
+                  {githubUrl}
+                </a>
+              </SubDescription>
+            </>
+          )}
         </div>
       </div>
     </article>

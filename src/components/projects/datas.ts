@@ -56,7 +56,7 @@ export function getProjects(t: TFunction): Array<MyProject> {
       description: t("project4.description"),
       technologies: ["three", "gsap"],
       url: "https://awesome-shaders.vercel.app/",
-      githubUrl: "https://github.com/jaewooojung/awesome-shaders",
+      githubUrl: "",
     },
   ];
 }
